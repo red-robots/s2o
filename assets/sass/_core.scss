@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
+	overflow-wrap: normal;
+    word-wrap: normal;
+    -ms-word-break: normal;
+    word-break: normal;
+    word-break: normal;
+    -ms-hyphens: none;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
+    page-break-inside: avoid;
+}
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+pre {
+	font-family: $font_pre;
+	font-size: 13px;
+	line-height: 1.3;
+}
+a,input,button {
+	transition: all ease-out .3s;
+}
+.cf:before, .cf:after {
+    content: " "; 
+    display: table; 
+}
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+.text-center {text-align:center;}
+
+/* Text meant only for screen readers. */
+.sr {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	&:focus {
+		background-color: #333;
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		color: #FFF;
+		display: block;
+		@include font-size(0.875);
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
+body {
+	font-family: $font_main;
+	font-size: 16px;
+	line-height: 1.4;
+	color: $color_text_main;
+}
+.hide {display: none!important;}
+.wrapper {
+	max-width: 1300px;
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+}
+.flexrow {
+	@include flexgroup();
+	@include flexbox-align-items(center);
+}
+.btn {
+	text-decoration: none;
+	display: inline-block;
+	background: $blue;
+	font-size: 15px;
+	line-height: 1;
+	padding: 10px 30px;
+	color: #FFF;
+	-webkit-appearance:none;
+	text-shadow: none;
+	box-shadow: none;
+	border: none;
+	@include tab {
+		font-size: 1.2vw;
+	}
+	&:hover {
+		background: $light_blue;
+	}
+}
+/* Header */
+.site-header {
+	width: 100%;
+	position: relative;
+	z-index: 100;
+	height: 60px;
+	background: $light_blue2;
+	@include tab {
+		background: transparent;
+		height: auto;
+		margin-top: 40px;
+		margin-bottom: 30px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+.logo {
+	width: 160px;
+    position: absolute;
+    z-index: 10;
+    top: 8px;
+    transition: all ease-out .3s;
+	@include tab {
+		top: 0;
+		width: 300px;
+	}
+	a, img {
+		display: block;
+		width: 100%;
+		height: auto;
+		float: left;
+		transition: all ease-out .3s;
+	}
+}
+
+/* Menu */
+.main-navigation {
+	width: 100%;
+	position: relative;
+	@include flexgroup();
+	@include flexbox-align-items(center);
+	.main-menu {
+		width: 100%;
+		display: none;
+		@include tab {
+			display: block;
+		}
+	}
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	li {
+		position: relative;
+	}
+	.menu {
+		display: inline-block;
+		float: right;
+	}
+	.menu > li {
+		float: left;
+	}
+	.menu a {
+		text-decoration: none;
+		display: block;
+		position: relative;
+	}
+	.menu > li {
+		padding: 0 15px;
+	}
+	.menu > li > a {
+		padding: 10px 5px;
+		text-transform: uppercase;
+		font-size: 18px;
+		font-style: italic;
+		color: #FFF;
+		.wave {
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			overflow: hidden;
+			visibility: hidden;
+			opacity: 0;
+			transition: all ease-out .3s;
+		}
+	}
+	.menu > li:hover > a .wave {
+		width: 100%;
+		visibility: visible;
+		opacity: 1;
+		path {
+			stroke-dasharray: 1000;
+			stroke-dashoffset: 1000;
+			animation: dash 5s linear alternate infinite;
+		}
+	}
+	.menu > li ul {
+		display: none;
+	}
+}
+#waveSvg {
+	display: none;
+}
+.wave {
+	.st0{
+		fill:none;
+		stroke:#FFFFFF;
+		stroke-miterlimit:10;
+	}
+}
+@keyframes dash {
+	from {
+		stroke-dashoffset: 1000;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.menu-toggle {
+	display: none;
+	@include tab {
+		display: none;
+	}
+}
+
+body.home .site-content.wrapper {
+	max-width: 100%;
+	width: 100%;
+	padding: 0 0;
+}
+img.rowImg {
+	display: none;
+	width: 100%;
+	height: auto;
+	float: left;
+	transition: all ease-out .3s;
+	@include tab {
+		display: block;
+	}
+}
+.mobileImg {
+	display: block;
+	width: 100%;
+	float: left;
+	height: 460px;
+	background-size:cover;
+	background-position: top center;
+	@include tab {
+		display: none;
+	}
+}
+.content-row {
+	width: 100%;
+	float: left;
+	position: relative;
+	color: $color_text_main; 
+	.text {
+		font-size: 15px;
+		font-weight: 300;
+		@include tab {
+			font-size: 1.3vw;
+		}
+	}
+	.sHead {
+		margin-bottom: 20px;
+	}
+	.sbutton {
+		margin-top: 30px;
+	}
+}
+
+.titlesm,
+.titlelg {
+	line-height: 1.1;
+	position: relative;
+	font-style: italic;
+}
+.titlesm {
+	font-size: 30px;
+	font-weight: 500;
+	bottom: -2px;
+	left: 4px;
+	@include tab {
+		font-size: 2.5vw;
+	}
+}
+.titlelg  {
+	font-size: 40px;
+	font-weight: 800;
+	font-style: italic;
+	text-transform: uppercase;
+	@include tab {
+		font-size: 4vw;
+	}
+}
+
+.section.row1 {
+	background-color: #0B395A;
+	.textwrap {
+		position: absolute;
+		z-index: 5;
+		width: 100%;
+		height: 100%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		@include flexgroup-center();
+	}
+	.inner {
+		width: 80%;
+		margin: 0 auto;
+		position: relative;
+		top: -30px;
+	}
+	.innerText {
+		@include tab {
+			width: 60%;
+		}
+	}
+}
+
+
