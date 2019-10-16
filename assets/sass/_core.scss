@@ -711,14 +711,14 @@ img.rowImg {
 				float: right;
 				width: 85%;
 			}
-			@media screen and (min-width:1500px) {
-				width: 650px;
+			@media screen and (min-width:1600px) {
+				width: 475px;
 			}
 		}
 	}
 	.textwrap {
 		position: absolute;
-		top: -8%;
+		top: -14%;
 		right: 0;
 		width: 53%;
 		height: 100%;
@@ -727,18 +727,22 @@ img.rowImg {
 		text-align: right;
 		@include flexgroup-center();
 		@include tab {
-			width: 38%;
+			width: 35%;
 			margin-right: 15%;
 		}
 		@include mid {
+			margin-right: 15%;
 			width: 33%;
 		}
 		@include desk {
 			top: -15%;
-			margin-right: 15%;
 		}
 		@include extra {
-			margin-right: 20%;
+			margin-right: 15%;
+		}
+		.inner {
+			width: 100%;
+			float: left;
 		}
 	}
 	.text {

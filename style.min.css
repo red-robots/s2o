@@ -1838,13 +1838,14 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 .section.row6 .content-row{position:absolute;top:0;left:0;width:100%;height:100%}
 .section.row6 .content-row .sHead{margin-bottom:10px}
 @media(min-width:1200px){.section.row6 .content-row .sHead{float:right;width:85%}
-}@media screen and (min-width:1500px){.section.row6 .content-row .sHead{width:650px}
-}.section.row6 .textwrap{position:absolute;top:-8%;right:0;width:53%;height:100%;margin-right:20px;color:#FFF;text-align:right;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-@media(min-width:768px){.section.row6 .textwrap{width:38%;margin-right:15%}
-}@media(min-width:900px){.section.row6 .textwrap{width:33%}
-}@media(min-width:1200px){.section.row6 .textwrap{top:-15%;margin-right:15%}
-}@media(min-width:1600px){.section.row6 .textwrap{margin-right:20%}
-}.section.row6 .text{width:100%;float:left}
+}@media screen and (min-width:1600px){.section.row6 .content-row .sHead{width:475px}
+}.section.row6 .textwrap{position:absolute;top:-14%;right:0;width:53%;height:100%;margin-right:20px;color:#FFF;text-align:right;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+@media(min-width:768px){.section.row6 .textwrap{width:35%;margin-right:15%}
+}@media(min-width:900px){.section.row6 .textwrap{margin-right:15%;width:33%}
+}@media(min-width:1200px){.section.row6 .textwrap{top:-15%}
+}@media(min-width:1600px){.section.row6 .textwrap{margin-right:15%}
+}.section.row6 .textwrap .inner{width:100%;float:left}
+.section.row6 .text{width:100%;float:left}
 .section.row6 p{margin-top:0}
 .section.row7{background-color:#FFF}
 .section.row7 .content-row{position:absolute;top:0;left:0;width:100%;height:100%}
