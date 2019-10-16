@@ -64,19 +64,30 @@ body {
 	font-size: 16px;
 	line-height: 1.4;
 	color: $color_text_main;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 .hide {display: none!important;}
 .wrapper {
-	max-width: 1300px;
+	max-width: 100%;
 	width: 100%;
 	margin: 0 auto;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 	position: relative;
+	@include tab {
+		max-width: 80%;
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 .flexrow {
 	@include flexgroup();
 	@include flexbox-align-items(center);
+}
+.site {
+	overflow-x: auto;
+	overflow-y: scroll;
 }
 .btn {
 	text-decoration: none;
@@ -90,28 +101,70 @@ body {
 	text-shadow: none;
 	box-shadow: none;
 	border: none;
+	overflow: hidden;
+	vertical-align: middle;
+	transition-duration: 0.3s;
+	transform: perspective(1px) translateZ(0);
 	@include tab {
-		font-size: 1.2vw;
+		font-size: 1.5vw;
+	}
+	&.white {
+		background: #FFF;
+		color: $blue;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		bottom: 0;
+		left: 0;
+		background-image:url("images/wave-hover.png");
+		background-position: top right;
+		background-size: 200%;
+		// right: 0;
+		// bottom: 0;
+		// background: $light_blue;
+		// -webkit-transform: scaleY(0);
+		// transform: scaleY(0);
+		// -webkit-transform-origin: 50% 100%;
+		// transform-origin: 50% 100%;
+		// -webkit-transition-property: transform;
+		// transition-property: transform;
+		// -webkit-transition-duration: 0.3s;
+		// transition-duration: 0.3s;
+		// -webkit-transition-timing-function: ease-out;
+		// transition-timing-function: ease-out;
+		width: 100%;
+		height: 0;
+		transition: all 2s ease-out;
 	}
 	&:hover {
-		background: $light_blue;
+		color: #FFF;
+		// &:before {
+		// 	-webkit-transform: scaleY(1);
+  //   		transform: scaleY(1);
+		// }
+		&:before {
+			height: 200%;
+			background-position: top left;
+			transition: all 1s ease-out;
+		}
 	}
 }
 /* Header */
 .site-header {
 	width: 100%;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
 	z-index: 100;
 	height: 60px;
-	background: $light_blue2;
+	background: #FFF;
 	@include tab {
 		background: transparent;
 		height: auto;
 		margin-top: 40px;
 		margin-bottom: 30px;
-		position: absolute;
-		top: 0;
-		left: 0;
 	}
 }
 .logo {
@@ -244,30 +297,57 @@ img.rowImg {
 	display: block;
 	width: 100%;
 	float: left;
-	height: 460px;
+	height: 480px;
+	position: relative;
 	background-size:cover;
 	background-position: top center;
 	@include tab {
 		display: none;
 	}
 }
+
+.section {
+	width: 100%;
+	float: left;
+	position: relative;
+	&:before {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
 .content-row {
 	width: 100%;
 	float: left;
 	position: relative;
 	color: $color_text_main; 
+	z-index: 10;
 	.text {
 		font-size: 15px;
 		font-weight: 300;
 		@include tab {
-			font-size: 1.3vw;
+			font-size: 2vw;
+		}
+		@include desk {
+			font-size: 26px;
 		}
 	}
 	.sHead {
-		margin-bottom: 20px;
+		margin-bottom: 2%;
+		@include tab {
+			margin-bottom: 3%;
+		}
 	}
 	.sbutton {
-		margin-top: 30px;
+		margin-top: 4%;
+		@include desk {
+			margin-top: 5%;
+		}
 	}
 }
 
@@ -278,21 +358,58 @@ img.rowImg {
 	font-style: italic;
 }
 .titlesm {
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 500;
-	bottom: -2px;
+	bottom: -1px;
 	left: 4px;
 	@include tab {
+		bottom: -2px;
 		font-size: 2.5vw;
+	}
+	@include desk {
+		font-size: 50px;
+	}
+}
+.titlesm.xs {
+	font-size: 18px;
+	bottom: 4px;
+	left: 4px;
+	@include tab {
+		bottom: -2px;
+		font-size: 2.5vw;
+	}
+	@include desk {
+		font-size: 30px;
 	}
 }
 .titlelg  {
-	font-size: 40px;
+	font-size: 26px;
 	font-weight: 800;
 	font-style: italic;
 	text-transform: uppercase;
 	@include tab {
 		font-size: 4vw;
+	}
+	@include mid {
+		font-size: 42px;
+	}
+	@include desk {
+		font-size: 70px;
+	}
+	&.md {
+		font-size: 30px;
+		font-weight: 800;
+		font-style: italic;
+		text-transform: uppercase;
+		@include tab {
+			font-size: 3vw;
+		}
+		@include mid {
+			font-size: 38px;
+		}
+		@include desk {
+			font-size: 52px;
+		}
 	}
 }
 
@@ -308,10 +425,14 @@ img.rowImg {
 		@include flexgroup-center();
 	}
 	.inner {
-		width: 80%;
+		width: 85%;
 		margin: 0 auto;
 		position: relative;
-		top: -30px;
+		margin-top: 0;
+		@include tab {
+			width: 80%;
+			margin-top: -2%;
+		}
 	}
 	.innerText {
 		@include tab {
@@ -320,4 +441,393 @@ img.rowImg {
 	}
 }
 
+.section.row2 {
+	background-color: $blue;
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.sHead {
+			@include desk {
+				float: right;
+			}
+			@media screen and (min-width:1500px) {
+				width: 500px;
+			}
+		}
+	}
+	.textwrap {
+		position: absolute;
+		top: -5%;
+		right: 0;
+		width: 53%;
+		height: 100%;
+		margin-right: 20px;
+		color: #FFF;
+		text-align: right;
+		@include flexgroup-center();
+		@include tab {
+			top: 2%;
+			width: 35%;
+			margin-right: 15%;
+		}
+		@include desk {
+			top: 0;
+			margin-right: 15%;
+		}
+	}
+	// .titlesm {
+	// 	font-size: 20px;
+	// 	font-weight: 500;
+	// 	bottom: -2px;
+	// 	left: 4px;
+	// 	@include tab {
+	// 		font-size: 2.5vw;
+	// 	}
+	// 	@include desk {
+	// 		font-size: 28px;
+	// 	}
+	// }
+	// .titlelg  {
+	// 	font-size: 30px;
+	// 	font-weight: 800;
+	// 	font-style: italic;
+	// 	text-transform: uppercase;
+	// 	@include tab {
+	// 		font-size: 3vw;
+	// 	}
+	// 	@include mid {
+	// 		font-size: 38px;
+	// 	}
+	// 	@include desk {
+	// 		font-size: 50px;
+	// 	}
+	// }
+	.text {
+		width: 100%;
+		float: left;
+	}
+}
 
+.section.row3 {
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.sHead {
+			width: 100%;
+		}
+	}
+	.textwrap {
+		width: 100%;
+		height: 100%;
+		@include flexgroup-center();
+	}
+	.wrapper {
+		top: 15px;
+		@include tab {
+			top: 20px;
+		}
+	}
+}
+
+.section.row4 {
+	.content-row {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 70%;
+		height: 100%;
+		text-align: right;
+		@include tab {
+			width: 45%;
+		}
+		@include extra {
+			width: 38%;
+		}
+		@media screen and (max-width: $tabwidth - 1px) {
+			width: 95%;
+		}
+		.sHead {
+			margin-bottom: 0;
+		}
+	}
+	.textwrap {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		margin-top: -20%;
+		@include flexgroup-center();
+		@media screen and (max-width: $tabwidth - 1px) {
+			margin-top: -12%;
+		}
+		@media screen and (max-width: $tabwidth - 1px) {
+			&:before {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 80%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+				background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+			}
+		}
+	}
+	.inner {
+		padding-right: 8%;
+		position: relative;
+		z-index: 10;
+		@include tab {
+			padding-right: 10%;
+		}
+		@include mid {
+			padding-right: 15%;
+		}
+		@include extra {
+			padding-right: 25%;
+		}
+		@media screen and (max-width: $tabwidth - 1px) {
+			width: 66%;
+			position: absolute;
+			right: 0;
+		}
+	}
+}
+
+.section.row5 {
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.sHead {
+			margin-bottom: 0;
+		}
+		.sbutton {
+			margin-top: 2%;
+		}
+	}
+	.textwrap {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		margin-top: -5%;
+		@include flexgroup-center();
+		@media screen and (max-width: $tabwidth - 1px) {
+			margin-top: -14%;
+		}
+	}
+	.largetexts {
+		max-width: 950px;
+		width: 95%;
+		@include mid {
+			width: 90%;
+		}
+		@include desk {
+			width: 85%;
+		}
+		@include extra {
+			width: 80%;
+		}
+		.titlelg {
+			padding-right: 55px;
+			line-height: 1;
+			margin-bottom: 10px;
+			@include flexbox();
+			@include flexbox-align-items(center);
+			//@include flexgroup-center();
+			@include tab {
+				padding-right: 70px;
+			}
+			@include mid {
+				padding-right: 140px;
+			}
+			@include desk {
+				padding-right: 180px;
+			}
+		}
+		.timg {
+			width: 50px;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			@include flexbox();
+			@include flexbox-align-items(center);
+			@include tab {
+				width: 70px;
+			}
+			@include mid {
+				width: 110px;
+			}
+			@include desk {
+				width: 220px;
+			}
+		}
+		img.img {
+			display: inline-block;
+			width: 100%;
+			height: auto;
+			// position: absolute;
+			// right: 0;
+			// @include tab {
+			// 	width: 70px;
+			// }
+			// @include mid {
+			// 	width: 140px;
+			// }
+			// @include desk {
+			// 	width: 180px;
+			// }
+		}
+	}
+	.text {
+		@include mid {
+			width: 70%;
+			padding-right: 230px;
+		}
+	}
+}
+
+.section.row6 {
+	background-color: $blue;
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.sHead {
+			margin-bottom: 10px;
+			@include desk {
+				float: right;
+				width: 85%;
+			}
+			@media screen and (min-width:1500px) {
+				width: 650px;
+			}
+		}
+	}
+	.textwrap {
+		position: absolute;
+		top: -8%;
+		right: 0;
+		width: 53%;
+		height: 100%;
+		margin-right: 20px;
+		color: #FFF;
+		text-align: right;
+		@include flexgroup-center();
+		@include tab {
+			width: 38%;
+			margin-right: 15%;
+		}
+		@include mid {
+			width: 33%;
+		}
+		@include desk {
+			top: -15%;
+			margin-right: 15%;
+		}
+		@include extra {
+			margin-right: 20%;
+		}
+	}
+	.text {
+		width: 100%;
+		float: left;
+	}
+	p {
+		margin-top: 0;
+	}
+}
+
+.section.row7 {
+	background-color: #FFF;
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.textwrap {
+		position: relative;
+		z-index: 5;
+		width: 100%;
+		height: 100%;
+		@include flexgroup-center();
+	}
+	.inner {
+		width: 80%;
+		margin: 0 auto;
+		position: relative;
+		margin-top: 0;
+		@include tab {
+			width: 80%;
+			margin-top: -11%;
+		}
+	}
+	.innerText {
+		@include tab {
+			width: 55%;
+		}
+	}
+}
+
+.section.row8 {
+	background-color: #FFF;
+	.content-row {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.textwrap {
+		position: relative;
+		z-index: 5;
+		width: 100%;
+		height: 100%;
+		//@include flexgroup-center();
+	}
+	.inner {
+		width: 55%;
+		position: absolute;
+		right: 0;
+		padding-top: 18%;
+		@include tab {
+			width: 50%;
+			padding-top: 10%;
+		}
+		@include extra {
+			padding-top: 18%;
+			width: 40%;
+		}
+		@media screen and (max-width: 480px) {
+			width: 68%;
+		}
+	}
+	.innerText {
+		padding-right: 10%;
+		@include tab {
+			padding-right: 20%;
+		}
+		@include extra {
+			padding-right: 30%;
+		}
+	}
+}
+.imageLayer2 {
+	width: 100%;
+	float: left;
+	position: relative;
+}

@@ -3,7 +3,7 @@ $color_link_visited: purple;
 $color_link_hover: midnightblue;
 $color_text_main: #003d5d;
 $blue: #003d5d;
-$light_blue: #0660a8;
+$light_blue: #035fab;
 $light_blue2: #d8e4eb;
 
 $font_main: 'Roboto', sans-serif;
@@ -14,11 +14,13 @@ $xswidth: 480px;
 $tabwidth: 768px;
 $midwidth: 900px;
 $deskwidth: 1200px;
+$extrawidth: 1600px;
 
 @mixin xs { @media (min-width: $xswidth) { @content; } }
 @mixin tab { @media (min-width: $tabwidth) { @content; } }
 @mixin mid { @media (min-width: $midwidth) { @content; } }
 @mixin desk {  @media (min-width: $deskwidth) { @content; } }
+@mixin extra {  @media (min-width: $extrawidth) { @content; } }
 
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
