@@ -25,6 +25,28 @@ pre {
 a,input,button {
 	transition: all ease-out .3s;
 }
+
+@font-face {
+    font-family: 'ArrowHalfFilled';
+    src: url('fonts/arrow-half-filled-right.eot');
+    src: url('fonts/arrow-half-filled-right.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arrow-half-filled-right.woff') format('woff'),
+         url('fonts/arrow-half-filled-right.ttf') format('truetype'),
+         url('fonts/arrow-half-filled-right.svg#arrow-half-filled-right') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class*='icon6-']:before{
+	display: inline-block;
+	font-family: 'ArrowHalfFilled';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+.icon6-half-filled-right:before{content:'\0041';}
+
 .cf:before, .cf:after {
     content: " "; 
     display: table; 
@@ -86,8 +108,9 @@ body {
 	@include flexbox-align-items(center);
 }
 .site {
-	overflow-x: auto;
-	overflow-y: scroll;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 .btn {
 	text-decoration: none;
@@ -154,10 +177,8 @@ body {
 /* Header */
 .site-header {
 	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
 	z-index: 100;
+	position: relative;
 	height: 60px;
 	background: #FFF;
 	@include tab {
@@ -166,6 +187,11 @@ body {
 		margin-top: 40px;
 		margin-bottom: 30px;
 	}
+}
+body.home .site-header {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .logo {
 	width: 160px;
@@ -189,9 +215,13 @@ body {
 /* Menu */
 .main-navigation {
 	width: 100%;
-	position: relative;
-	@include flexgroup();
-	@include flexbox-align-items(center);
+	position: absolute;
+	left: 0;
+	@include tab {
+		position: relative;
+		@include flexgroup();
+		@include flexbox-align-items(center);
+	}
 	.main-menu {
 		width: 100%;
 		display: none;
@@ -199,6 +229,16 @@ body {
 			display: block;
 		}
 	}
+
+	.main-menu {
+		@media screen and (max-width: $tabwidth - 1px) {
+			position: absolute;
+			top: 60px;
+			left: 0;
+			width: 100%;
+		}
+	}
+
 	ul {
 		margin: 0 0;
 		padding: 0 0;
@@ -208,11 +248,34 @@ body {
 		position: relative;
 	}
 	.menu {
-		display: inline-block;
-		float: right;
+		display: block;
+		float: left;
+		width: 100%;
+		background: $blue;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		@include tab {
+			display: inline-block;
+			float: right;
+			width: auto;
+			background: transparent;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 	.menu > li {
-		float: left;
+		float: none;
+		width: 100%;
+		text-align: center;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		@include tab {
+			width: auto;
+			float: left;
+			text-align: left;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 	.menu a {
 		text-decoration: none;
@@ -231,16 +294,21 @@ body {
 		.wave {
 			position: absolute;
 			bottom: -5px;
-			left: 0;
-			width: 100%;
 			overflow: hidden;
 			visibility: hidden;
 			opacity: 0;
 			transition: all ease-out .3s;
+			width: 80px;
+			left: 50%;
+			transform: translateX(-50%);
+			@include tab {
+				width: 100%;
+				left: 0;
+				transform: none;
+			}
 		}
 	}
 	.menu > li:hover > a .wave {
-		width: 100%;
 		visibility: visible;
 		opacity: 1;
 		path {
@@ -263,6 +331,25 @@ body {
 		stroke-miterlimit:10;
 	}
 }
+body.subpage  .wave {
+	.st0{ 
+		stroke: $blue;
+	}
+}
+
+body.subpage .main-navigation {
+	.menu > li > a {
+		color: #FFF;
+		@include tab {
+			color: $blue;
+		}
+	}
+	.menu li.current_page_item > a .wave {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
 @keyframes dash {
 	from {
 		stroke-dashoffset: 1000;
@@ -272,9 +359,56 @@ body {
 	}
 }
 .menu-toggle {
-	display: none;
+	display: block;
+	width: 36px;
+	height: 40px;
+	-webkit-appearance: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	border-radius: 0px;
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	padding: 0 0;
+	margin: 0 0;
 	@include tab {
 		display: none;
+	}
+	span.bar {
+		display: inline-block;
+		position: relative;
+		top: -2px;
+	}
+	span.bar,
+	span.bar:before,
+	span.bar:after {
+		width: 100%;
+		height: 4px;
+		background: $blue;
+		transition: all ease-out .3s;
+	}
+	span.bar:before, span.bar:after {
+		content:"";
+		position: absolute;
+		left: 0;
+	}
+	span.bar:before {
+		top: -10px;
+	}
+	span.bar:after {
+		top: 10px;
+	}
+	&.open {
+		span.bar {
+			background: transparent;
+		}
+		span.bar:before {
+			transform: translateY(10px) rotate(45deg);
+		}
+		span.bar:after {
+			transform: translateY(-10px) rotate(-45deg);
+		}
 	}
 }
 
@@ -282,6 +416,9 @@ body.home .site-content.wrapper {
 	max-width: 100%;
 	width: 100%;
 	padding: 0 0;
+}
+body.subpage .site-content.wrapper {
+	margin-top: 60px;
 }
 img.rowImg {
 	display: none;
@@ -630,10 +767,7 @@ img.rowImg {
 		max-width: 950px;
 		width: 95%;
 		@include mid {
-			width: 90%;
-		}
-		@include desk {
-			width: 85%;
+			width: 95%;
 		}
 		@include extra {
 			width: 80%;
@@ -666,7 +800,7 @@ img.rowImg {
 				width: 70px;
 			}
 			@include mid {
-				width: 110px;
+				width: 95px;
 			}
 			@include desk {
 				width: 220px;
@@ -789,6 +923,23 @@ img.rowImg {
 
 .section.row8 {
 	background-color: #FFF;
+	position: relative;
+	&:after {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 30%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(1,40,64,1) 100%);
+		background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(1,40,64,1) 100%);
+		background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(1,40,64,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#012840',GradientType=0 );
+		@media screen and (max-width: $xswidth) {
+			height: 70%;
+		}
+	}
 	.content-row {
 		position: absolute;
 		top: 0;
@@ -812,11 +963,14 @@ img.rowImg {
 			width: 50%;
 			padding-top: 10%;
 		}
+		@include mid {
+			padding-top: 18%;
+		}
 		@include extra {
 			padding-top: 18%;
 			width: 40%;
 		}
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: $xswidth) {
 			width: 68%;
 		}
 	}
@@ -835,3 +989,255 @@ img.rowImg {
 	float: left;
 	position: relative;
 }
+.foot-info {
+	width: 100%;
+	position: relative;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+	text-align: center;
+	.flex {
+		@include flexgroup-center();
+		@include flexbox-justify(center);
+		position: relative;
+	}
+	.midtext {
+		width: 100%;
+		margin: 0 auto;
+		text-align: left;
+		position: relative;
+		@include tab {
+			width: 80%;
+		}
+	}
+	.foot-icon {
+		width: 50px;
+		position: relative;
+		left: 0;
+		@include mid {
+			width: 70px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.foot-text {
+		color: #FFF;
+		font-weight: 800;
+		font-style: italic;
+		font-size: 16px;
+		line-height: 1.2;
+		text-transform: uppercase;
+		padding-left: 20px;
+		@include tab {
+			font-size: 2vw;
+		}
+		@include desk {
+			font-size: 25px;
+		}
+		p {
+			margin: 0 0;
+		}
+		a {
+			color: $yellow;
+			display: inline-block;
+			text-decoration: none;
+			position: relative;
+			// background: url("images/arrow-right.png");
+			// background-size: contain;
+			// background-repeat: no-repeat;
+			// background-position: top right;
+			padding-right: 22px;
+			&:after {
+				content:'\0041';
+				display: inline-block;
+				font-family: 'ArrowHalfFilled';
+				font-style: normal;
+				font-weight: normal;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				position: relative;
+				top: 3px;
+				right: -7px;
+				transition: all ease-out .3s;
+			}
+			&:hover {
+				color: $yellow_light;
+				&:after {
+					right: -12px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width:499px) {
+	.foot-info .foot-icon {
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		width: 40px;
+	}
+	.foot-info .foot-text {
+		padding-left: 55px;
+		font-size: 12px;
+		width: 100%;
+		position: relative;
+		top: -23px;
+	}
+}
+@media screen and (max-width: $xswidth) {
+	.site-footer .foot-info {
+		.flex {
+			@include flexgroup-center();
+		}
+		.foot-icon {
+			position: static;
+			width: 15%;
+			float: left;
+		}
+		.foot-text {
+			font-size: 14px;
+			width: 85%;
+			float: right;
+			position: static;
+			padding-left: 15px;
+		}
+	}
+}
+
+body.home .site-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 20;
+}
+.site-footer {
+	padding-bottom: 30px;
+}
+.footer-menu {
+	text-align: center;
+	position: relative;
+	a {
+		display: inline-block;
+		text-decoration: none;
+		color: #FFF;
+		font-size: 14px;
+		line-height: 1;
+		text-transform: uppercase;
+		padding: 0 15px 0 14px;
+		&:hover {
+			color: $yellow;
+		}
+	}
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		li ul {
+			display: none;
+		}
+	}
+	.menu {
+		display: inline-block;
+		text-align: center;
+		padding: 10px 0 20px;
+	}
+	.menu li {
+		float: left;
+		line-height: 1;
+		border-left: 1px solid #FFF;
+		@media screen and (max-width: $xswidth) {
+			width: 100%;
+			border-left: none;
+			margin: 3px 0;
+			a {
+				padding: 4px 10px;
+			}
+		}
+	}
+	.menu li:first-child {
+		border-left: none;
+	}
+}
+.foot-contact-info {
+	margin-top: 10px;
+	position: relative;
+	text-align: center;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		text-align: center;
+	}
+	li {
+		font-size: 15px;
+		line-height: 1;
+		float: left;
+		padding: 0 16px 0 15px;
+		border-left: 1px solid #FFF;
+		position: relative;
+		@media screen and (max-width: $deskwidth - 1px) {
+			display: inline-block;
+			width: auto;
+			float: none;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		&.info {
+			@media screen and (max-width: $xswidth) {
+				width: 100%;
+				border-left: none;
+			}
+		}
+	}
+	.footcontact {
+		position: relative;
+		@include desk {
+			@include flexbox();
+			@include flexbox-align-items(center);
+			@include flexbox-justify(center);
+			right: -2%;
+		}
+		@media screen and (max-width: $deskwidth - 1px) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+	.footcontact li:first-child {
+		border-left: none;
+	}
+	.social-media {
+		border-left: none;
+		@media screen and (max-width: $deskwidth - 1px) {
+			display: block;
+			width: 100%;
+			float: left;
+			margin-bottom: 0;
+			margin-top: 20px;
+		}
+		a {
+			color: #FFF;
+			display: inline-block;
+			text-decoration: none;
+			font-size: 25px;
+			line-height: 1;
+			margin: 2px 4px;
+			@include mid {
+				font-size: 2vw;
+			}
+			@include desk {
+				font-size: 25px;
+			}
+			&:hover {
+				color: $yellow;
+			}
+		}
+	}
+}
+

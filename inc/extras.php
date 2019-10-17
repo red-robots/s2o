@@ -148,17 +148,18 @@ function email_obfuscator($string) {
 
 function get_social_links() {
     $social_types = array(
-        'facebook'  => 'fab fa-facebook-square',
-        'twitter'   => 'fab fa-twitter-square',
-        'instagram' => 'fab fa-instagram',
-        'snapchat'  => 'fab fa-snapchat-ghost',
-        'youtube'   => 'fab fa-youtube'
+        'facebook_link'  => 'fab fa-facebook-square',
+        'instagram_link' => 'fab fa-instagram',
+        'twitter_link'   => 'fab fa-twitter-square',
+        'linkedin_link'   => 'fab fa-linkedin',
+        'youtube_link'   => 'fab fa-youtube'
     );
     $social = array();
     foreach($social_types as $k=>$icon) {
         $value = get_field($k,'option');
         if($value) {
-            $social[$k] = array('link'=>$value,'icon'=>$icon);
+            $field = str_replace("_link","",$k);
+            $social[$field] = array('link'=>$value,'icon'=>$icon);
         }
     }
     return $social;

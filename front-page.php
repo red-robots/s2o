@@ -333,7 +333,6 @@
 			<img class="rowImg" src="<?php echo $row8_image2['url'] ?>" alt="" aria-hidden="true" />
 		</div>
 		<?php } ?>
-
 	</section>
 
 <?php endwhile; ?>

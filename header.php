@@ -9,6 +9,7 @@
 
 
 <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,7 +29,7 @@
 	        <?php } ?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="sr"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></span><span class="bar"></span></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>'main-menu','link_before'=>'<span>','link_after'=>'</span>' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</div><!-- wrapper -->
@@ -36,6 +37,6 @@
 
 	<div id="waveSvg" style="display:none;"><svg class="wave" enable-background="new 0 0 89.67 9.21" version="1.1" viewBox="0 0 89.67 9.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path class="st0" d="m0.37 6.76s7.61-7.6 19.79-5.98c16.01 2.12 15.37 6.63 28.12 7.68 17 1.4 16.6-4.72 26.91-6.55 9.51-1.68 14.18 0.96 14.18 0.96"/>
 	</svg></div>
-	
+
 
 	<div id="content" class="site-content wrapper cf">
