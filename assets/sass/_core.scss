@@ -447,6 +447,10 @@ img.rowImg {
 	width: 100%;
 	float: left;
 	position: relative;
+	overflow: hidden;
+	@media screen and (max-width: $xswidth) {
+		overflow: visible;
+	}
 	&:before {
 		content:"";
 		display: block;
@@ -464,6 +468,10 @@ img.rowImg {
 	position: relative;
 	color: $color_text_main; 
 	z-index: 10;
+	.sHead, .text {
+		position: relative;
+		z-index: 5;
+	}
 	.text {
 		font-size: 15px;
 		font-weight: 300;
@@ -614,6 +622,12 @@ img.rowImg {
 			top: 0;
 			margin-right: 15%;
 		}
+		@media screen and (max-width: $xswidth) {
+			width: 95%;
+			margin-right: 0;
+			padding-right: 80px;
+			text-shadow: 1px 0 9px rgba(0,0,0,0.6);
+		}
 	}
 	// .titlesm {
 	// 	font-size: 20px;
@@ -673,6 +687,22 @@ img.rowImg {
 }
 
 .section.row4 {
+	@media screen and (max-width: $xswidth) {
+		&:before {
+			content:"";
+			display: block;
+			width: 100%;
+			height: 70%;
+			position: absolute;
+			top: -10%;
+			left: 0;
+			z-index: 5;
+			background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+			background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+		}
+	}
 	.content-row {
 		position: absolute;
 		top: 0;
@@ -704,17 +734,22 @@ img.rowImg {
 		}
 		@media screen and (max-width: $tabwidth - 1px) {
 			&:before {
-				content:"";
-				display: block;
-				width: 100%;
-				height: 80%;
-				position: absolute;
-				top: 0;
-				right: 0;
-				background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-				background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-				background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+				// content:"";
+				// display: block;
+				// width: 100%;
+				// height: 80%;
+				// position: absolute;
+				// top: 0;
+				// right: 0;
+				// background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+				// background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				// background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+			}
+		}
+		@media screen and (max-width: $xswidth) {
+			&:before {
+				display: none;
 			}
 		}
 	}
@@ -735,6 +770,29 @@ img.rowImg {
 			width: 66%;
 			position: absolute;
 			right: 0;
+			padding-top: 20px;
+			padding-left: 20px;
+			padding-bottom: 20px;
+			padding-right: 80px;
+			&:before {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+				background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+			}
+		}
+		@media screen and (max-width: $xswidth) {
+			width: 95%;
+			margin-right: 0;
+			padding-right: 70px;
+			text-shadow: 1px 0 9px rgba(0,0,0,0.2);
 		}
 	}
 }
@@ -873,6 +931,12 @@ img.rowImg {
 		}
 		@include extra {
 			margin-right: 15%;
+		}
+		@media screen and (max-width: $xswidth) {
+			width: 95%;
+			margin-right: 0;
+			padding-right: 70px;
+			text-shadow: 1px 0 9px rgba(0,0,0,0.6);
 		}
 		.inner {
 			width: 100%;
@@ -1240,4 +1304,140 @@ body.home .site-footer {
 		}
 	}
 }
+
+.animateOnScroll {
+	width: 60px;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	z-index: 3000;
+	&.init {
+		top: 0;
+	}
+	.scrollObj {
+		width: 100px;
+		position: absolute;
+		top: 20%;
+		right: 10px;
+		transition: all ease-out .5s;
+		img {
+			width: 100%;
+			height: auto;
+			transition: all ease-out .3s;
+		}
+		.kayak2 {
+			display: none;
+		}
+		&.left {
+			.kayak1 {
+				display: none;
+			}
+			.kayak2 {
+				display: inline-block;
+			}
+		}
+		&.right {
+			.kayak1 {
+				display: inline-block;
+			}
+			.kayak2 {
+				display: none;
+			}
+		}
+	}
+	.scrollDowntxt {
+		font-size: 16px;
+		font-weight: 600;
+		font-style: italic;
+		line-height: 1;
+		width: 200px;
+		color: #FFF;
+		position: absolute;
+		top: 35%;
+		right: -10px;
+		letter-spacing: 1px;
+	}
+	.line {
+		width: 2px;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		overflow: hidden;
+	}
+
+	&.init .line {
+		bottom: 0;
+		height: 76%;
+	}
+	.dash {
+		display: block;
+		width: 100%;
+		height: 15px;
+		background: #FFF;
+		margin: 15px 0;
+	}
+	// .dashed {
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	background: yellow;
+	// }
+}
+.kayakImg {
+	display: block;
+	width: 100%;
+	height: 120px;
+	background-image:url("images/kayak1.png");
+	background-size: 100%;
+	background-position: top left;
+	background-repeat: no-repeat;
+	transition: all ease-out .5s;
+	//animation: kayak 1s infinite steps(2);
+}
+.paddle {
+	display: block;
+	width: 100%;
+	height: 60px;
+	background-image:url("images/paddle.png");
+	background-size: 100%;
+	background-position: top left;
+	background-repeat: no-repeat;
+	transition: all ease-out .5s;
+	position: absolute;
+    top: 34px;
+    left: 0;
+    &.action {
+		animation: kayak 1s infinite linear;
+    }
+    //transform: rotate(45deg);
+}
+
+@keyframes kayak {
+	0% {
+		transform: rotate(60deg);
+	}
+	50% { 
+		transform: rotate(-30deg);
+	}
+	100% { 
+		transform: rotate(50deg);
+	}
+}
+.scrollObj.fixed {
+	position: fixed;
+	top: 40%;
+	&.bottom {
+		top: 65%;
+	} 
+}
+.section.last {
+	.animateOnScroll.continue .line {
+		height: 85%;
+	}
+}
+.section:not(.row1) {
+	.animateOnScroll.continue .line {
+		top: 0;
+	}
+}
+
 

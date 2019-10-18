@@ -13,6 +13,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div id="page" class="site cf">
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 

@@ -1781,9 +1781,11 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 @media(min-width:768px){img.rowImg{display:block}
 }.mobileImg{display:block;width:100%;float:left;height:480px;position:relative;background-size:cover;background-position:top center}
 @media(min-width:768px){.mobileImg{display:none}
-}.section{width:100%;float:left;position:relative}
-.section:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0}
+}.section{width:100%;float:left;position:relative;overflow:hidden}
+@media screen and (max-width:500px){.section{overflow:visible}
+}.section:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0}
 .content-row{width:100%;float:left;position:relative;color:#003d5d;z-index:10}
+.content-row .sHead,.content-row .text{position:relative;z-index:5}
 .content-row .text{font-size:15px;font-weight:300}
 @media(min-width:768px){.content-row .text{font-size:2vw}
 }@media(min-width:1200px){.content-row .text{font-size:26px}
@@ -1818,12 +1820,14 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 }.section.row2 .textwrap{position:absolute;top:-5%;right:0;width:53%;height:100%;margin-right:20px;color:#FFF;text-align:right;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media(min-width:768px){.section.row2 .textwrap{top:2%;width:35%;margin-right:15%}
 }@media(min-width:1200px){.section.row2 .textwrap{top:0;margin-right:15%}
+}@media screen and (max-width:500px){.section.row2 .textwrap{width:95%;margin-right:0;padding-right:80px;text-shadow:1px 0 9px rgba(0,0,0,0.6)}
 }.section.row2 .text{width:100%;float:left}
 .section.row3 .content-row{position:absolute;top:0;left:0;width:100%;height:100%}
 .section.row3 .content-row .sHead{width:100%}
 .section.row3 .textwrap{width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .section.row3 .wrapper{top:15px}
 @media(min-width:768px){.section.row3 .wrapper{top:20px}
+}@media screen and (max-width:500px){.section.row4:before{content:"";display:block;width:100%;height:70%;position:absolute;top:-10%;left:0;z-index:5;background:-webkit-linear-gradient(left,rgba(255,255,255,0) 0,white 100%);background:linear-gradient(to right,rgba(255,255,255,0) 0,white 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#ffffff',GradientType=1)}
 }.section.row4 .content-row{position:absolute;top:0;right:0;width:70%;height:100%;text-align:right}
 @media(min-width:768px){.section.row4 .content-row{width:45%}
 }@media(min-width:1600px){.section.row4 .content-row{width:38%}
@@ -1831,12 +1835,14 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 }.section.row4 .content-row .sHead{margin-bottom:0}
 .section.row4 .textwrap{width:100%;height:100%;position:relative;margin-top:-20%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media screen and (max-width:767px){.section.row4 .textwrap{margin-top:-12%}
-}@media screen and (max-width:767px){.section.row4 .textwrap:before{content:"";display:block;width:100%;height:80%;position:absolute;top:0;right:0;background:-webkit-linear-gradient(left,rgba(255,255,255,0) 0,white 100%);background:linear-gradient(to right,rgba(255,255,255,0) 0,white 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#ffffff',GradientType=1)}
+}@media screen and (max-width:500px){.section.row4 .textwrap:before{display:none}
 }.section.row4 .inner{padding-right:8%;position:relative;z-index:10}
 @media(min-width:768px){.section.row4 .inner{padding-right:10%}
 }@media(min-width:900px){.section.row4 .inner{padding-right:15%}
 }@media(min-width:1600px){.section.row4 .inner{padding-right:25%}
-}@media screen and (max-width:767px){.section.row4 .inner{width:66%;position:absolute;right:0}
+}@media screen and (max-width:767px){.section.row4 .inner{width:66%;position:absolute;right:0;padding-top:20px;padding-left:20px;padding-bottom:20px;padding-right:80px}
+.section.row4 .inner:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;right:0;background:-webkit-linear-gradient(left,rgba(255,255,255,0) 0,white 100%);background:linear-gradient(to right,rgba(255,255,255,0) 0,white 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#ffffff',GradientType=1)}
+}@media screen and (max-width:500px){.section.row4 .inner{width:95%;margin-right:0;padding-right:70px;text-shadow:1px 0 9px rgba(0,0,0,0.2)}
 }.section.row5 .content-row{position:absolute;top:0;left:0;width:100%;height:100%}
 .section.row5 .content-row .sHead{margin-bottom:0}
 .section.row5 .content-row .sbutton{margin-top:2%}
@@ -1865,6 +1871,7 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 }@media(min-width:900px){.section.row6 .textwrap{margin-right:15%;width:33%}
 }@media(min-width:1200px){.section.row6 .textwrap{top:-15%}
 }@media(min-width:1600px){.section.row6 .textwrap{margin-right:15%}
+}@media screen and (max-width:500px){.section.row6 .textwrap{width:95%;margin-right:0;padding-right:70px;text-shadow:1px 0 9px rgba(0,0,0,0.6)}
 }.section.row6 .textwrap .inner{width:100%;float:left}
 .section.row6 .text{width:100%;float:left}
 .section.row6 p{margin-top:0}
@@ -1935,3 +1942,29 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 @media(min-width:900px){.foot-contact-info .social-media a{font-size:2vw}
 }@media(min-width:1200px){.foot-contact-info .social-media a{font-size:25px}
 }.foot-contact-info .social-media a:hover{color:#ffd200}
+.animateOnScroll{width:60px;height:100%;position:absolute;right:0;z-index:3000}
+.animateOnScroll.init{top:0}
+.animateOnScroll .scrollObj{width:100px;position:absolute;top:20%;right:10px;-webkit-transition:all ease-out .5s;transition:all ease-out .5s}
+.animateOnScroll .scrollObj img{width:100%;height:auto;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+.animateOnScroll .scrollObj .kayak2{display:none}
+.animateOnScroll .scrollObj.left .kayak1{display:none}
+.animateOnScroll .scrollObj.left .kayak2{display:inline-block}
+.animateOnScroll .scrollObj.right .kayak1{display:inline-block}
+.animateOnScroll .scrollObj.right .kayak2{display:none}
+.animateOnScroll .scrollDowntxt{font-size:16px;font-weight:600;font-style:italic;line-height:1;width:200px;color:#FFF;position:absolute;top:35%;right:-10px;letter-spacing:1px}
+.animateOnScroll .line{width:2px;height:100%;position:absolute;left:0;overflow:hidden}
+.animateOnScroll.init .line{bottom:0;height:76%}
+.animateOnScroll .dash{display:block;width:100%;height:15px;background:#FFF;margin:15px 0}
+.kayakImg{display:block;width:100%;height:120px;background-image:url("images/kayak1.png");background-size:100%;background-position:top left;background-repeat:no-repeat;-webkit-transition:all ease-out .5s;transition:all ease-out .5s}
+.paddle{display:block;width:100%;height:60px;background-image:url("images/paddle.png");background-size:100%;background-position:top left;background-repeat:no-repeat;-webkit-transition:all ease-out .5s;transition:all ease-out .5s;position:absolute;top:34px;left:0}
+.paddle.action{-webkit-animation:kayak 1s infinite linear;animation:kayak 1s infinite linear}
+@-webkit-keyframes kayak{0%{-webkit-transform:rotate(60deg);transform:rotate(60deg)}
+50%{-webkit-transform:rotate(-30deg);transform:rotate(-30deg)}
+100%{-webkit-transform:rotate(50deg);transform:rotate(50deg)}
+}@keyframes kayak{0%{-webkit-transform:rotate(60deg);transform:rotate(60deg)}
+50%{-webkit-transform:rotate(-30deg);transform:rotate(-30deg)}
+100%{-webkit-transform:rotate(50deg);transform:rotate(50deg)}
+}.scrollObj.fixed{position:fixed;top:40%}
+.scrollObj.fixed.bottom{top:65%}
+.section.last .animateOnScroll.continue .line{height:85%}
+.section:not(.row1) .animateOnScroll.continue .line{top:0}

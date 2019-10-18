@@ -13,13 +13,14 @@
 	?>
 
 	<?php /* Row 1 */ ?>
-	<section class="section cf row1">
+	<section id="layer1" class="section cf row1">
+	
 		<?php if ($row1_image1) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row1_image1['url'] ?>');">
 		</div>
 		<img class="rowImg" src="<?php echo $row1_image1['url'] ?>" alt="" aria-hidden="true" />
 		<?php } ?>
-	
+		
 		<div class="content-row">
 			<?php if ($row1_image2) { ?>
 			<div class="mobileImg" style="background-image:url('<?php echo $row1_image2['url'] ?>');"></div>
@@ -51,6 +52,16 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="animateOnScroll init">
+			<div class="scrollDowntxt scrolldata">Scroll Down</div>
+			<div class="scrollObj scrolldata"><div class="kayakImg"></div><div class="paddle"></div></div>
+			<div class="line">
+				<?php for($i=1;$i<=200;$i++) { ?>
+				<span class="dash"></span>
+				<?php } ?>
+			</div>
+		</div>
 	</section>
 
 
@@ -61,12 +72,12 @@
 		$row2_text = get_field('row2_text');
 	?>
 	<?php /* Row 2 */ ?>
-	<section class="section cf row2">
+	<section id="layer2" class="section cf row2">
 		<?php if ($row2_image1) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row2_image1['url'] ?>');"></div>
 		<img class="rowImg" src="<?php echo $row2_image1['url'] ?>" alt="" aria-hidden="true" />
 		<?php } ?>
-
+		
 		<div class="content-row">
 			<div class="textwrap">
 				<div class="inner cf wow fadeInRight">
@@ -93,12 +104,12 @@
 		$row3_title_large = get_field('row3_title_large');
 	?>
 	<?php /* Row 3 */ ?>
-	<section class="section cf row3">
+	<section id="layer3" class="section cf row3">
 		<?php if ($row3_image1) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row3_image1['url'] ?>');"></div>
 		<img class="rowImg" src="<?php echo $row3_image1['url'] ?>" alt="" aria-hidden="true" />
 		<?php } ?>
-
+		
 		<div class="content-row">
 			<div class="textwrap">
 				<div class="wrapper cf">
@@ -122,7 +133,7 @@
 		$row4_text2 = get_field('row4_text2');
 	?>
 	<?php /* Row 4 */ ?>
-	<section class="section cf row4">
+	<section id="layer4" class="section cf row4">
 		<?php if ($row4_image) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row4_image['url'] ?>');"></div>
 		<img class="rowImg" src="<?php echo $row4_image['url'] ?>" alt="" aria-hidden="true" />
@@ -154,7 +165,7 @@
 		$row5_button_link = get_field('row5_button_link');
 	?>
 	<?php /* Row 5 */ ?>
-	<section class="section cf row5">
+	<section id="layer5" class="section cf row5">
 		<?php if ($row5_image) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row5_image['url'] ?>');"></div>
 		<img class="rowImg" src="<?php echo $row5_image['url'] ?>" alt="" aria-hidden="true" />
@@ -211,7 +222,7 @@
 		$row6_button_link = get_field('row6_button_link');
 	?>
 	<?php /* Row 6 */ ?>
-	<section class="section cf row6">
+	<section id="layer6" class="section cf row6">
 		<?php if ($row6_image) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row6_image['url'] ?>');"></div>
 		<img class="rowImg" src="<?php echo $row6_image['url'] ?>" alt="" aria-hidden="true" />
@@ -250,7 +261,7 @@
 	?>
 
 	<?php /* Row 7 */ ?>
-	<section class="section cf row7">
+	<section id="layer7" class="section cf row7">
 		<?php if ($row7_image1) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row7_image1['url'] ?>');">
 		</div>
@@ -294,7 +305,7 @@
 	?>
 
 	<?php /* Row 8 */ ?>
-	<section class="section cf row8">
+	<section id="layer8" class="section cf row8 last">
 		<?php if ($row8_image1) { ?>
 		<div class="mobileImg" style="background-image:url('<?php echo $row8_image1['url'] ?>');">
 		</div>
