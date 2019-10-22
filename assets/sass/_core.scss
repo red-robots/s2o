@@ -97,10 +97,13 @@ body {
 	padding-left: 30px;
 	padding-right: 30px;
 	position: relative;
-	@include tab {
-		max-width: 80%;
+	@include mid {
+		max-width: 95%;
 		padding-left: 0;
 		padding-right: 0;
+	}
+	@include desk {
+		max-width: 80%;
 	}
 }
 .flexrow {
@@ -177,11 +180,11 @@ body {
 /* Header */
 .site-header {
 	width: 100%;
-	z-index: 100;
+	z-index: 30005;
 	position: relative;
 	height: 60px;
 	background: #FFF;
-	@include tab {
+	@include mid {
 		background: transparent;
 		height: auto;
 		margin-top: 40px;
@@ -199,8 +202,11 @@ body.home .site-header {
     z-index: 10;
     top: 8px;
     transition: all ease-out .3s;
-	@include tab {
+	@include mid {
 		top: 0;
+		width: 200px;
+	}
+	@include desk {
 		width: 300px;
 	}
 	a, img {
@@ -217,7 +223,7 @@ body.home .site-header {
 	width: 100%;
 	position: absolute;
 	left: 0;
-	@include tab {
+	@include mid {
 		position: relative;
 		@include flexgroup();
 		@include flexbox-align-items(center);
@@ -225,13 +231,13 @@ body.home .site-header {
 	.main-menu {
 		width: 100%;
 		display: none;
-		@include tab {
-			display: block;
+		@include mid {
+			display: block!important;
 		}
 	}
 
 	.main-menu {
-		@media screen and (max-width: $tabwidth - 1px) {
+		@media screen and (max-width: $midwidth - 1px) {
 			position: absolute;
 			top: 60px;
 			left: 0;
@@ -254,7 +260,7 @@ body.home .site-header {
 		background: $blue;
 		padding-top: 20px;
 		padding-bottom: 20px;
-		@include tab {
+		@include mid {
 			display: inline-block;
 			float: right;
 			width: auto;
@@ -269,7 +275,7 @@ body.home .site-header {
 		text-align: center;
 		margin-top: 5px;
 		margin-bottom: 5px;
-		@include tab {
+		@include mid {
 			width: auto;
 			float: left;
 			text-align: left;
@@ -301,7 +307,7 @@ body.home .site-header {
 			width: 80px;
 			left: 50%;
 			transform: translateX(-50%);
-			@include tab {
+			@include mid {
 				width: 100%;
 				left: 0;
 				transform: none;
@@ -350,6 +356,32 @@ body.subpage .main-navigation {
 	}
 }
 
+body.subpage.hasbanner {
+	.site-header {
+		@include mid {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.main-navigation .menu > li > a {
+		@include mid {
+			color: #FFF;
+		}
+	}
+	.wave {
+		.st0{ 
+			stroke:#FFFFFF;
+		}
+	}
+}
+.hero {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 @keyframes dash {
 	from {
 		stroke-dashoffset: 1000;
@@ -372,7 +404,7 @@ body.subpage .main-navigation {
 	right: 25px;
 	padding: 0 0;
 	margin: 0 0;
-	@include tab {
+	@include mid {
 		display: none;
 	}
 	span.bar {
@@ -1053,6 +1085,25 @@ img.rowImg {
 	float: left;
 	position: relative;
 }
+
+/* Subpage */
+.subsection {
+	.hd1 {
+		max-width: 600px;
+		width: 100%;
+		margin: 0 auto;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2em;
+		font-weight: 700;
+		font-style: italic;
+		line-height: 1.2;
+		@include tab {
+			font-size: 3em;
+		}
+	}
+}
+
 .foot-info {
 	width: 100%;
 	position: relative;
@@ -1439,5 +1490,6 @@ body.home .site-footer {
 		top: 0;
 	}
 }
+
 
 

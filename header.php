@@ -9,10 +9,13 @@
 
 
 <?php wp_head(); ?>
-
+<?php 
+$banner = get_field('banner');
+$bodyClass = ($banner) ? 'hasbanner':'nobanner';
+?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class($bodyClass); ?>>
 
 <div id="page" class="site cf">
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
@@ -39,5 +42,6 @@
 	<div id="waveSvg" style="display:none;"><svg class="wave" enable-background="new 0 0 89.67 9.21" version="1.1" viewBox="0 0 89.67 9.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path class="st0" d="m0.37 6.76s7.61-7.6 19.79-5.98c16.01 2.12 15.37 6.63 28.12 7.68 17 1.4 16.6-4.72 26.91-6.55 9.51-1.68 14.18 0.96 14.18 0.96"/>
 	</svg></div>
 
+	<?php get_template_part("template-parts/content","hero"); ?>
 
-	<div id="content" class="site-content wrapper cf">
+	<div id="content" class="site-content cf">
