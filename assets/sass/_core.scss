@@ -129,7 +129,7 @@ body {
 	border: none;
 	overflow: hidden;
 	vertical-align: middle;
-	transition-duration: 0.3s;
+	transition-duration: 0.25s;
 	transform: perspective(1px) translateZ(0);
 	@include tab {
 		font-size: 1.5vw;
@@ -147,29 +147,12 @@ body {
 		background-image:url("images/wave-hover.png");
 		background-position: top right;
 		background-size: 200%;
-		// right: 0;
-		// bottom: 0;
-		// background: $light_blue;
-		// -webkit-transform: scaleY(0);
-		// transform: scaleY(0);
-		// -webkit-transform-origin: 50% 100%;
-		// transform-origin: 50% 100%;
-		// -webkit-transition-property: transform;
-		// transition-property: transform;
-		// -webkit-transition-duration: 0.3s;
-		// transition-duration: 0.3s;
-		// -webkit-transition-timing-function: ease-out;
-		// transition-timing-function: ease-out;
 		width: 100%;
 		height: 0;
-		transition: all 2s ease-out;
+		transition: all 1.5s ease-out;
 	}
 	&:hover {
 		color: #FFF;
-		// &:before {
-		// 	-webkit-transform: scaleY(1);
-  //   		transform: scaleY(1);
-		// }
 		&:before {
 			height: 200%;
 			background-position: top left;
@@ -324,7 +307,71 @@ body.home .site-header {
 		}
 	}
 	.menu > li ul {
-		display: none;
+		display: block;
+		@include tab {
+			position: absolute;
+			width: 220px;
+			right: 0;
+			z-index: 30;
+			padding-top: 20px;
+			padding-bottom: 10px;
+			text-align: right;
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+			transition: all ease-out .3s;
+			margin-top: -10px;
+			&:before {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(23,38,63,0.3) 14%, rgba(23,38,63,0.6) 28%, rgba(23,38,63,0.9) 100%);
+				background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(23,38,63,0.3) 14%,rgba(23,38,63,0.6) 28%,rgba(23,38,63,0.9) 100%);
+				background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(23,38,63,0.3) 14%,rgba(23,38,63,0.6) 28%,rgba(23,38,63,0.9) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#e617263f',GradientType=0 );
+			}
+			a {
+				display: block;
+				color: #FFF;
+				font-size: 14px;
+				padding: 5px 15px;
+				letter-spacing: 1px;
+				&:hover {
+					color: #7fd2f3;
+				}
+			}
+		}
+	}	
+	.menu li:hover ul {
+		@include tab {
+			height: auto;
+			opacity: 1;
+			visibility: visible;
+			transition: all ease-out .3s;
+			margin-top: 0;
+		}
+	}
+	@media screen and (max-width: $tabwidth - 1px) {
+		.menu > li ul {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			margin-bottom: 10px;
+			border-bottom: 1px dotted rgba(255,255,255,.5);
+			a {
+				display: inline-block;
+				color: #FFF;
+				font-size: 14px;
+				padding: 5px 15px;
+				letter-spacing: 1px;
+				&:hover {
+					color: #7fd2f3;
+				}
+			}
+		}
 	}
 }
 #waveSvg {
@@ -1088,20 +1135,199 @@ img.rowImg {
 
 /* Subpage */
 .subsection {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.5;
+	position: relative;
+	@include tab {
+		font-size: 20px;
+	}
+	&.padtb {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		@include tab {
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		@include mid {
+			padding-top: 70px;
+			padding-bottom: 80px;
+		}
+	}
 	.hd1 {
 		max-width: 600px;
 		width: 100%;
-		margin: 0 auto;
+		margin: 0 auto 30px;
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 2em;
+		font-size: 30px;
 		font-weight: 700;
 		font-style: italic;
 		line-height: 1.2;
 		@include tab {
-			font-size: 3em;
+			font-size: 40px;
+		}
+		@include mid {
+			font-size: 45px;
 		}
 	}
+	.scol {
+		@include tab {
+			width: 50%;
+			float: left;
+		}
+		&.right {
+			@include tab {
+				padding-left: 20px;
+			}
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+	h3 {
+		font-size: 20px;
+		font-weight: 500;
+		font-style: italic;
+		line-height: 1.3;
+		margin: 0 0 15px;
+		@include tab {
+			font-size: 30px;
+		}
+	}
+	.btn {
+		font-size: 16px;
+		padding: 10px 30px;
+		min-width: 260px;
+		text-align: center;
+		@include tab {
+			font-size: 20px;
+		}
+	}
+	div.button {
+		margin-top: 30px;
+	}
+	@media screen and (max-width: $tabwidth - 1px) {
+		div.button {
+			text-align: center;
+		}
+	}
+}
+.section-divider {
+	margin: 30px 0;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.subsection.row2 {
+	.toptext {
+		max-width: 900px;
+		width: 100%;
+		margin: 0 auto 30px;
+	}
+	.photos {
+		@include flexgroup-center();
+		.img {
+			padding: 10px;
+			position: relative;
+			margin: 0 -8px;
+		}
+		&.imgcol1 {
+			.img {
+				max-width: 900px;
+				width: 100%;
+			}
+		}
+		&.imgcol2 {
+			.img {
+				width: 100%;
+				@include tab {
+					width: 50%;
+				}
+			}
+		}
+		&.imgcol3 {
+			.img {
+				width: 100%;
+				@include tab {
+					width: 33%;
+				}
+			}
+		}
+		&.imgcol4 {
+			.img {
+				width: 100%;
+				@include tab {
+					width: 50%;
+				}
+				@include mid {
+					width: 25%;
+				}
+			}
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.subsection.row3 {
+	background: #01324a;
+	.toptext {
+		max-width: 900px;
+		width: 100%;
+		margin: 0 auto;
+		color: #FFF;
+	}
+}
+
+.subsection.row4 {
+	.scol {
+		.text {
+			font-size: 20px;
+			font-weight: 500;
+			font-style: italic;
+			line-height: 1.3;
+			margin: 0 0 15px;
+			text-align: center;
+			@include tab {
+				font-size: 30px;
+				text-align: left;
+			}
+		}
+	}
+}
+
+.mobileRowBg {
+	display: block;
+	width: 100%;
+	height: 580px;
+	background-size: cover;
+	background-position: center;
+	@include tab {
+		display: none;
+	}
+}
+img.rowBg {
+	display: none;
+	width: 100%;
+	height: auto;
+	@include tab {
+		display: block;
+	}
+}
+.subsection .section-text {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 10;
+	@include flexgroup-center();
 }
 
 .foot-info {
@@ -1353,6 +1579,19 @@ body.home .site-footer {
 				color: $yellow;
 			}
 		}
+	}
+}
+
+body.subpage {
+	.site-footer {
+		background-color: $blue;
+		background-image:url('images/footerBg.jpg');
+		background-size: cover;
+		background-position: top center;
+		color: #FFF;
+		padding-top: 150px;
+		width: 100%;
+		float: left;
 	}
 }
 

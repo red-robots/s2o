@@ -33,6 +33,13 @@ jQuery(document).ready(function ($) {
 		$(this).append(wave);
 	});
 	
+	// $("#primary-menu  li.menu-item-has-children").hover(
+	// 	function(){
+	// 		$(this).find("a").next().slideDown();
+	// 	}, function() {
+	// 		$(this).find("a").next().slideUp();
+	// 	}
+	// );
 
 	/*
 	*

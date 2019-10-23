@@ -3,26 +3,24 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="wrapper">
 			<?php 
-			if( is_front_page() ) {
-				$foot_icon = get_field('foot_icon','option');
-				$foot_text = get_field('foot_text','option');
-				?>
-				<?php if ($foot_text) { ?>
-				<div class="foot-info">
-					<div class="midtext">
-						<div class="flex clear">
-							<?php if ($foot_icon) { ?>
-								<div class="foot-icon">
-									<img src="<?php echo $foot_icon['url'] ?>" alt="<?php echo $foot_icon['title'] ?>" />
-								</div>
-							<?php } ?>
-							<div class="foot-text">
-								<?php echo $foot_text ?>
+			$foot_icon = get_field('foot_icon','option');
+			$foot_text = get_field('foot_text','option');
+			?>
+			<?php if ($foot_text) { ?>
+			<div class="foot-info">
+				<div class="midtext">
+					<div class="flex clear">
+						<?php if ($foot_icon) { ?>
+							<div class="foot-icon">
+								<img src="<?php echo $foot_icon['url'] ?>" alt="<?php echo $foot_icon['title'] ?>" />
 							</div>
+						<?php } ?>
+						<div class="foot-text">
+							<?php echo $foot_text ?>
 						</div>
 					</div>
-				</div>	
-				<?php } ?>
+				</div>
+			</div>	
 			<?php } ?>
 			
 			<?php if ( has_nav_menu( 'footer' ) ) { ?>
