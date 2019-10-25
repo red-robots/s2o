@@ -115,5 +115,21 @@ jQuery(document).ready(function ($) {
 
 	}
 
+	/* Filter Options => Projects page */
+	$(document).on("click","#filterprojects a",function(e){
+		e.preventDefault();
+		var target = $(this);
+		var url = $(this).attr('href');
+		window.history.pushState('', document.title, url);
+		$("#filterprojects a").removeClass("active");
+		setTimeout(function(){
+			$("#loaderdiv").addClass('show');
+			$(".project-galleries").load(url + " #projectslist",function(){
+				target.addClass('active');
+				$("#loaderdiv").removeClass('show');
+			});
+		},200);
+	});
+
 
 });// END #####################################    END
