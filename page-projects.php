@@ -25,7 +25,7 @@ get_header(); ?>
 			$projectCats = get_terms( array(
 			    'taxonomy' => $taxonomy,
 			    'post_types'=> array($post_type),
-			    'hide_empty' => false,
+			    'hide_empty' => true,
 			) );
 
 			$posts_per_page = -1;
