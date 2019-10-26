@@ -1404,6 +1404,24 @@ img.rowBg {
 				opacity: 0;
 				visibility: hidden;
 			}
+			&:after {
+				content:"Photo Coming Soon";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				text-align: center;
+				color: #b5b5b5;
+				font-size: 18px;
+				font-weight:  600;
+				text-transform: uppercase;
+				opacity: 0.65;
+				transition: all ease-out .3s;
+				@include flexgroup-center();
+				@include flexbox-justify(center);
+			}
 		}
 		img {
 			width: 100%;
@@ -1425,6 +1443,7 @@ img.rowBg {
 			left: 0;
 			background-size: cover;
 			background-position: center;
+			z-index: 3;
 		}
 		span.caption {
 			width: 100%;
@@ -1458,11 +1477,22 @@ img.rowBg {
 			}
 		}
 	}
+	.box.hasimage {
+		.inner {
+			&:after {
+				content:attr(data-name);
+			}
+		}	
+	}
 	.box:hover {
 		.inner {
 			&:before {
 				opacity: 0.3;
 				visibility: visible;
+			}
+			&:after {
+				margin-top: -20px;
+				opacity: 0;
 			}
 		}
 		span.image {
@@ -1523,12 +1553,25 @@ img.rowBg {
 		}
 	}
 }
+h1.hd1 {
+	line-height: 1.3;
+}
+.singleproject {
+	margin-bottom: 70px;
+	h1.hd1 {
+		margin-bottom: 30px;
+	}
+	.introwrap {
+		padding-top: 10px;
+		padding-bottom: 0;
+	}
+}
 .single-content {
 	&.hasHighlights {
 		.text {
 			width: 100%;
 			float: left;
-			margin-bottom: 30px;
+			margin-bottom: 10px;
 			@include tab {
 				width: 66%;
 				float: left;
@@ -1546,6 +1589,8 @@ img.rowBg {
 		background: $blue;
 		color: #FFF;
 		padding: 20px 20px 15px;
+		width: 100%;
+		float: left;
 		@include tab {
 			width: 30%;
 			float: right;
@@ -1565,6 +1610,78 @@ img.rowBg {
 		font-weight: 500;
 		font-style: italic;
 		line-height: 1.3;
+	}
+}
+
+.galleries {
+	margin-bottom: 70px;
+	position: relative;
+	.swiper-container {
+		overflow: hidden;
+		background: #CCC;
+		//height: auto;
+		// @include xs {
+		// 	height: 300px;
+		// }
+		// @include tab {
+		// 	height: 400px;
+		// }
+		// @include mid {
+		// 	height: 500px;
+		// }
+	}
+	.swiper-wrapper,
+	.swiper-slide {
+		width: 100%;
+		height: 100%;
+	}
+	.swiper-slide {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		cursor: -webkit-grabbing; 
+		cursor: grabbing;
+		position: relative;
+		.description {
+			display: none;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 15px 15px;
+			color: #FFF;
+			font-size: 14px;
+			line-height: 1.3;
+			background: rgba(0,0,0,.85);
+			transition: all ease-out .3s;
+			transform: translateY(100%);
+		}
+		&.swiper-slide-active {
+			.description {
+				transition-delay: .5s;
+				transform: translateY(0);
+			}
+		}
+	}
+	.swiper-slide img {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+	.swiper-pagination {
+		width: 100%;
+		text-align: center;
+		margin-top: 10px;
+	}
+	.swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+		margin: 3px;
+		background: #c4d6e0;
+		opacity: 1;
+		&.swiper-pagination-bullet-active {
+			background: #003d5d;
+		}
 	}
 }
 

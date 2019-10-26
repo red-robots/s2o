@@ -15,6 +15,21 @@ jQuery(document).ready(function ($) {
 	$('.flexslider').flexslider({
 		animation: "slide",
 	}); // end register flexslider
+
+	
+	var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+	    delay: 3000,
+	  },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
 	
 	/*
 	*

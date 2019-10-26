@@ -14,7 +14,29 @@ get_header(); ?>
 		<?php  
 			$highlights = get_field('project_highlights');
 			$galleries = get_field('gallery');
+			$placeholder = get_bloginfo("template_url") . "/images/rectangle.png";
 		?>
+
+		<?php if ($galleries) { ?>
+		<div class="galleries wrapper cf">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<?php foreach ($galleries as $ga) { 
+					$imgURL = $ga['images']['url'];
+					$description = $ga['description'];
+					?>
+					<div class="swiper-slide" style="background-image:url('<?php echo $imgURL;?>')">
+						<img src="<?php echo $placeholder; ?>" alt="" aria-hidden="true" />
+						<?php if ($description) { ?>
+						<div class="description"><?php echo $description ?></div>	
+						<?php } ?>
+					</div>
+					<?php } ?>
+				</div>
+			</div>	
+			<div class="swiper-pagination"></div>
+		</div>
+		<?php } ?>
 
 		<div class="wrapper single-content<?php echo ($highlights) ? ' hasHighlights':''; ?>">
 			

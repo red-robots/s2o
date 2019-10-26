@@ -76,7 +76,7 @@ get_header(); ?>
 						$postid = get_the_ID();
 						$projImage = get_field('featured_image');
 						$hasImage = ($projImage) ? 'hasimage' : 'noimage';
-						$style = ($projImage) ? ' style="background-image:url('.$projImage['url'].')"':'';
+						$style = ($projImage) ? ' style="background-image:url('.$projImage['sizes']['medium_large'].')"':'';
 						$title = get_the_title();
 						$link = get_permalink();
 						$locationsCats = get_the_terms($postid,'project-locations');
@@ -91,8 +91,8 @@ get_header(); ?>
 							}
 						}
 					?>
-					<div class="box">
-						<a class="inner <?php echo $hasImage ?>" href="<?php echo $link ?>">
+					<div class="box <?php echo $hasImage ?>">
+						<a class="inner <?php echo $hasImage ?>" data-name="<?php echo $title; ?>" href="<?php echo $link ?>">
 							<?php if ($projImage) { ?>
 							<span class="image"<?php echo $style ?>></span>
 							<?php } ?>
