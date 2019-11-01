@@ -1685,6 +1685,151 @@ h1.hd1 {
 	}
 }
 
+.content-area.default {
+	.site-main {
+		min-height: 30em;
+	}
+	h1.entry-title {
+		margin: 0 0 20px;
+		text-transform: uppercase;
+		font-size: 30px;
+		font-weight: 700;
+		font-style: italic;
+		line-height: 1.2;
+		@include tab {
+			font-size: 40px;
+		}
+		@include mid {
+			font-size: 45px;
+		}
+	}
+}
+.sitemapMenu {
+	margin-top: 30px;
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		li {
+			position: relative;
+		}
+	}
+	ul > li {
+		padding-left: 12px;
+		margin-bottom: 2px;
+		&:before {
+			content:"";
+			display: block;
+			width: 5px;
+			height: 5px;
+			background: $light_blue;
+			position: absolute;
+			top: 7px;
+			left: 0;
+		}
+		ul {
+			padding-left: 10px;
+		}
+		ul li {
+			padding-left: 10px;
+			&:before {
+				background: transparent;
+				border: 1px solid $light_blue;
+				border-radius: 100%;
+				width: 3px;
+				height: 3px;
+			}
+		}
+	}
+	a {
+		color: $light_blue;
+		text-decoration: none;
+		display: inline-block;
+		&:hover {
+			color: $brightblue;
+		}
+	}
+}
+.page404.content-area.default {
+	margin-top: 40px;
+	text-align: center;
+	@include tab {
+		margin-top: 90px;
+	}
+	h1.entry-title {
+		margin: 0 0 5px;
+	}
+	.entry-content {
+		p {
+			margin-top: 0;
+		}
+	}
+	.sitemapMenu {
+		display: inline-block;
+		text-align: left;
+	}
+}
+
+body.nobanner {
+	.content-area.default {
+		margin-top: 40px;
+		@include tab {
+			margin-top: 60px;
+		}
+	}
+	.page404.content-area.default {
+		margin-top: 40px;
+		@include tab {
+			margin-top: 100px;
+		}
+	}
+}
+body.pagesitemap {
+	.sitemapMenu {
+		text-align: left;
+	}
+}
+.pagecontact {
+	.gform_wrapper {
+		max-width: 900px;
+		width: 100%;
+	}
+}
+
+/* GFORMS */
+.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+	border: 1px solid #909090;
+	height: 40px;
+	line-height: 40px;
+	padding: 5px;
+}
+.gform_wrapper select, .gform_wrapper textarea {
+	border: 1px solid #909090;
+	padding: 5px;
+}
+.gform_wrapper select,.gform_wrapper textarea,
+.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+	transition: all ease-out .3s;
+	&:focus {
+		outline: none;
+		border: 1px solid #108df5;
+		box-shadow: 0 0 7px 1px rgba(3, 43, 117, 0.3);
+	}
+}
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type=submit] {
+	border: 1px solid #064a82;
+	border-bottom-width: 4px;
+	padding: 10px 25px;
+	font-weight: 500;
+	font-size: 18px!important;
+	line-height: 1.2;
+	background: #00589f;
+	color: #FFF;
+	transition: all ease-out .3s;
+	&:hover {
+		background: #0d7bd4;
+	}
+}
 #loaderdiv {
 	display: none;
 	position: fixed;
