@@ -105,6 +105,14 @@ body {
 	@include desk {
 		max-width: 80%;
 	}
+	&.med {
+		@include mid {
+			max-width: 80%;
+		}
+		@include desk {
+			max-width: 60%;
+		}
+	}
 }
 .flexrow {
 	@include flexgroup();
@@ -1464,7 +1472,7 @@ img.rowBg {
 				transition: all ease-out .3s;
 			}
 			.title {
-				font-size: 18px;
+				font-size: 20px;
 				font-weight:  600;
 				text-transform: uppercase;
 			}
@@ -1504,6 +1512,24 @@ img.rowBg {
 			visibility: visible;
 			.wrap {
 				transform: translateY(0);
+			}
+		}
+	}
+}
+.staffspage {
+	.introwrap {
+		padding-bottom: 30px;
+		@include desk {
+			padding-bottom: 40px;
+		}
+	}
+	.project-galleries {
+		.hd3 {
+			font-size: 25px;
+			font-weight: 400;
+			margin: 0 0 35px;
+			@include desk {
+				margin-bottom: 50px;
 			}
 		}
 	}
@@ -2148,7 +2174,8 @@ body.home .site-footer {
 body.subpage {
 	.site-footer {
 		background-color: $blue;
-		background-image:url('images/footerBg.jpg');
+		// background-image:url('images/footerBg.jpg');
+		background-image:url('images/footerBg2.jpg');
 		background-size: cover;
 		background-position: top center;
 		color: #FFF;
