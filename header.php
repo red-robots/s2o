@@ -7,11 +7,7 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
 <?php 
-$banner = get_field('banner');
-if( is_singular( array('projects') ) ) {
-	$parentId = get_page_id_by_template('page-projects');
-	$banner = get_field('banner',$parentId);
-}
+$banner = get_subpage_banner();
 $bodyClass = ($banner) ? 'hasbanner':'nobanner';
 ?>
 </head>

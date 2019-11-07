@@ -72,18 +72,12 @@ function init_scripts() {
 }
 
 function get_page_id_by_template($fileName) {
+    global $wpdb;
     $page_id = 0;
     if($fileName) {
-        $pages = get_pages(array(
-            'post_type' => 'page',
-            'meta_key' => '_wp_page_template',
-            'meta_value' => $fileName.'.php'
-        ));
-
-        if($pages) {
-            $row = $pages[0];
-            $page_id = $row->ID;
-        }
+        $fileName = $fileName . ".php";
+        $result = $wpdb->get_row( "SELECT * FROM $wpdb->postmeta WHERE meta_key='_wp_page_template' AND meta_value = '".$fileName."'" );
+        $page_id = ($result) ? $result->post_id : 0;
     }
     return $page_id;
 }
@@ -165,3 +159,15 @@ function get_social_links() {
     return $social;
 }
 
+function get_subpage_banner() {
+    $banner = get_field('banner');
+    if( is_singular( array('projects') ) ) {
+        $parentId = get_page_id_by_template('page-projects');
+        $banner = get_field('banner',$parentId);
+    }
+    if( is_singular( array('staff') ) ) {
+        $parentId = get_page_id_by_template('page-staff');
+        $banner = get_field('banner',$parentId);
+    }
+    return $banner;
+}
