@@ -123,6 +123,9 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+#content:focus {
+	outline: none;
+}
 .btn {
 	text-decoration: none;
 	display: inline-block;

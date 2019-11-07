@@ -44,7 +44,7 @@ get_header(); ?>
 							$link = get_permalink();
 						?>
 						<div class="box <?php echo $hasImage ?>">
-							<a class="inner <?php echo $hasImage ?>" data-name="<?php echo $title; ?>" href="<?php echo $link ?>">
+							<a href="<?php echo $link ?>#content" class="inner <?php echo $hasImage ?>" data-name="<?php echo $title; ?>">
 								<?php if ($projImage) { ?>
 								<span class="image"<?php echo $style ?>></span>
 								<?php } ?>

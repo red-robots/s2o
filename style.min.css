@@ -1836,6 +1836,7 @@ body{font-family:"Roboto",sans-serif;font-size:16px;line-height:1.4;color:#003d5
 }@media(min-width:1200px){.wrapper.med{max-width:60%}
 }.flexrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .site{position:relative;overflow-x:hidden;overflow-y:auto}
+#content:focus{outline:0}
 .btn{text-decoration:none;display:inline-block;background:#003d5d;font-size:15px;line-height:1;padding:10px 30px;color:#FFF;-webkit-appearance:none;text-shadow:none;box-shadow:none;border:0;overflow:hidden;vertical-align:middle;-webkit-transition-duration:.25s;transition-duration:.25s;-webkit-transform:perspective(1px) translateZ(0);transform:perspective(1px) translateZ(0)}
 @media(min-width:768px){.btn{font-size:1.5vw}
 }.btn.white{background:#FFF;color:#003d5d}

@@ -1,7 +1,7 @@
 <?php
 
 get_header(); ?>
-
+	
 	<div id="primary" class="content-area single-staff default cf">
 		<main id="main" class="site-main wrapper cf" role="main">
 
@@ -10,7 +10,7 @@ get_header(); ?>
 					$photo = get_field("picture");
 					$title = get_field("title");
 				?>
-				<article id="post-<?php the_ID(); ?>" class="entry-content cf <?php echo ($photo) ? 'hasphoto':'nophoto';?>">
+				<article id="post<?php the_ID(); ?>" class="entry-content cf <?php echo ($photo) ? 'hasphoto':'nophoto';?>">
 					<?php if ($photo) { ?>
 					<div class="photo">
 						<img src="<?php echo $photo['url'] ?>" alt="<?php echo $photo['title'] ?>" />

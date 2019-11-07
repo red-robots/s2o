@@ -146,5 +146,24 @@ jQuery(document).ready(function ($) {
 		},200);
 	});
 
+	if( location.hash && location.hash.length ) {
+      var currentHash = location.hash;  
+      var target = $(currentHash);
+      //var offsetHeight = $(".main-site-header").outerHeight();
+      var offsetHeight = 160;
+      $('html, body').animate({
+        scrollTop: target.offset().top - offsetHeight
+      }, 1000, function() {
+        var $target = target;
+        $target.focus();
+        if ($target.is(":focus")) { // Checking if the target was focused
+          return false;
+        } else {
+          $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          $target.focus(); // Set focus again
+        };
+      });
+    }
+
 
 });// END #####################################    END
