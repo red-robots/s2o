@@ -12,12 +12,12 @@ get_header(); ?>
 				?>
 				<article id="post<?php the_ID(); ?>" class="entry-content cf <?php echo ($photo) ? 'hasphoto':'nophoto';?>">
 					<?php if ($photo) { ?>
-					<div class="photo">
+					<div class="photo animated fadeInLeft">
 						<img src="<?php echo $photo['url'] ?>" alt="<?php echo $photo['title'] ?>" />
 					</div>	
 					<?php } ?>
 
-					<div class="text">
+					<div class="text animated fadeInRight">
 						<div class="head">
 							<h1><?php the_title() ?></h1>
 							<?php if ($title) { ?>
