@@ -1,12 +1,12 @@
 <?php
 /**
- * Template Name: Staff
+ * Template Name: Services
  *
  */
 
 get_header(); ?>
 
-<div id="primary" class="content-area cf staffspage">
+<div id="primary" class="content-area cf topcontent">
 	<main id="main" class="site-main" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<h1 style="display:none;"><?php the_title(); ?></h1>
@@ -40,7 +40,7 @@ get_header(); ?>
 
 		<?php  
 			$list_title = get_field("list_title");
-			$post_type = 'staff';
+			$post_type = 's2o-services';
 			$posts_per_page = -1;
 			$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 			$args = array(
@@ -50,37 +50,54 @@ get_header(); ?>
 			);
 
 			$team = new WP_Query($args);
-			$placeholder = get_bloginfo("template_url") . "/images/square.png";
+			$placeholder = get_bloginfo("template_url") . "/images/rectangle.png";
 			if ( $team->have_posts() ) {  ?>
-				<div class="project-galleries cf">
+				<div class="services-wrapper cf">
 					<?php if ($list_title) { ?>
-					<div class="wrapper"><h3 class="listtitle text-center"><em><?php echo $list_title ?></em></h3></div>
+					<div class="wrapper"><h3 class="listtitle text-center"><em class="underline"><?php echo $list_title ?></em></h3></div>
 					<?php } ?>
-					<div id="projectslist" class="wrapper">
+					<div id="servicesList" class="wrapper">
 						<?php while ( $team->have_posts() ) : $team->the_post(); 
 							$postid = get_the_ID();
-							$projImage = get_field('picture');
+							$projImage = get_field("featuredImage");
 							$hasImage = ($projImage) ? 'hasimage' : 'noimage';
 							$style = ($projImage) ? ' style="background-image:url('.$projImage['sizes']['medium_large'].')"':'';
 							$title = get_the_title();
-							$link = get_permalink();
+							$description = get_field("description");
+							//$link = get_permalink();
 						?>
 						<div class="box <?php echo $hasImage ?>">
-							<a href="<?php echo $link ?>#content" class="inner <?php echo $hasImage ?>" data-name="<?php echo $title; ?>">
-								<?php if ($projImage) { ?>
-								<span class="image"<?php echo $style ?>></span>
-								<?php } ?>
-								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
-								<span class="caption">
-									<span class="wrap">
-										<span class="title"><?php echo $title; ?></span>
-									</span>
-								</span>
-							</a>
+							<div class="flexbox">
+								<div class="textcol">
+									<h2 class="item-name"><?php echo $title ?></h2>
+									<div class="description"><?php echo $description ?></div>
+								</div>
+								<div class="imagecol"<?php echo $style ?>>
+									<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
+								</div>
+							</div>
 						</div>
 						<?php endwhile; wp_reset_postdata(); ?>
 					</div>
 				</div>
+			<?php } ?>
+
+			<?php
+			$c_bottom_text = get_field("c_bottom_text");
+			$c_bottom_button_name = get_field("c_bottom_button_name");
+			$c_bottom_button_link = get_field("c_bottom_button_link");  
+			?>
+			<?php if ($c_bottom_text) { ?>
+			<section class="pagebottomtext text-center">
+				<div class="wrapper">
+					<div class="text"><?php echo $c_bottom_text ?></div>
+					<?php if ($c_bottom_button_name && $c_bottom_button_link) { ?>
+						<div class="buttondiv">
+							<a href="<?php echo $c_bottom_button_link ?>" class="btn sm"><?php echo $c_bottom_button_name ?></a>
+						</div>
+					<?php } ?>
+				</div>
+			</section>	
 			<?php } ?>
 	</main><!-- #main -->
 </div><!-- #primary -->

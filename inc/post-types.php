@@ -8,8 +8,15 @@
 add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
+        // array(
+        //     'post_type' => 'services',
+        //     'menu_name' => 'Services',
+        //     'plural'    => 'Services',
+        //     'single'    => 'Service',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
-            'post_type' => 'services',
+            'post_type' => 's2o-services',
             'menu_name' => 'Services',
             'plural'    => 'Services',
             'single'    => 'Service',
