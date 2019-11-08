@@ -1533,7 +1533,10 @@ img.rowBg {
 .listtitle {
 	font-size: 25px;
 	font-weight: 400;
-	margin: 20px 0 20px;
+	margin: 30px 0 10px;
+	@include tab {
+		margin: 20px 0 20px;
+	}
 	&.underline {
 		border-bottom: 1px solid $blue;
 	}
@@ -1651,7 +1654,10 @@ h1.hd1 {
 	font-size: 25px;
 	font-weight: 500;
 	font-style: italic;
-	margin: 30px 0 30px;
+	margin: 30px 0 20px;
+	@include tab {
+		margin: 30px 0 30px;
+	}
 }
 .singleproject {
 	margin-bottom: 70px;
@@ -1806,13 +1812,16 @@ h1.hd1 {
 	.box {
 		width: 100%;
 		float: left;
-		margin: 30px 0;
+		margin: 20px 0;
+		@include tab {
+			margin: 30px 0;
+		}
 	}
 	.flexbox {
 		@include flexgroup-center();
 	}
 	.textcol {
-		margin-bottom: 20px;
+		margin-bottom: 0;
 		padding-right: 0;
 		@include tab {
 			margin-bottom: 0;
