@@ -1831,7 +1831,7 @@ body{font-family:"Roboto",sans-serif;font-size:16px;line-height:1.4;color:#003d5
 .hide{display:none !important}
 .wrapper{max-width:100%;width:100%;margin:0 auto;padding-left:30px;padding-right:30px;position:relative}
 @media(min-width:960px){.wrapper{max-width:95%;padding-left:0;padding-right:0}
-}@media(min-width:1200px){.wrapper{max-width:70%}
+}@media(min-width:1200px){.wrapper{max-width:75%}
 }@media(min-width:960px){.wrapper.med{max-width:80%}
 }@media(min-width:1200px){.wrapper.med{max-width:60%}
 }.flexrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
@@ -2162,7 +2162,22 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 @media(min-width:960px){.pagebottomtext .wrapper{max-width:900px}
 }.pagebottomtext .text{font-size:20px;font-weight:500;font-style:italic;margin-bottom:30px}
 @media(min-width:960px){.pagebottomtext .text{font-size:25px}
-}.sitemapMenu{margin-top:30px}
+}.type-parks h3.name{font-size:20px;font-weight:500;font-style:italic;text-align:center;line-height:1.2;margin:0 0 40px}
+.type-parks h3.name span{display:inline-block;border-bottom:1px solid #003d5d}
+.type-parks .park-info,.type-parks .feat-image,.type-parks .text-wrap{width:100%;float:left}
+.type-parks .park-info{margin:50px 0 50px}
+.type-parks .feat-image img{width:100%;height:auto;float:left}
+.type-parks .text-wrap{padding-top:30px;padding-bottom:30px}
+.type-parks .text-wrap p{margin-top:0}
+.type-parks .leftcol{width:100%;margin-bottom:30px;font-size:20px}
+@media(min-width:768px){.type-parks .leftcol{width:70%;float:left;padding-right:30px;margin-bottom:0}
+}.type-parks .leftcol ul>li{margin:20px 0}
+.type-parks .rightcol{background:#003d5d;color:#FFF;padding:20px;font-size:16px}
+@media(min-width:768px){.type-parks .rightcol{width:28%;float:right}
+}.type-parks .rightcol h3{font-size:20px;font-weight:500;font-style:italic;margin:0 0 15px}
+.type-parks .rightcol p:last-child{margin-bottom:0}
+.type-parks .pagebottomtext{width:100%;float:left;margin-top:30px;margin-bottom:30px}
+.sitemapMenu{margin-top:30px}
 .sitemapMenu ul{margin:0;padding:0;list-style:none}
 .sitemapMenu ul li{position:relative}
 .sitemapMenu ul>li{padding-left:12px;margin-bottom:2px}

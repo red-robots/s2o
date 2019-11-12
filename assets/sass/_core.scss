@@ -103,7 +103,7 @@ body {
 		padding-right: 0;
 	}
 	@include desk {
-		max-width: 70%;
+		max-width: 75%;
 	}
 	&.med {
 		@include mid {
@@ -1893,6 +1893,79 @@ h1.hd1 {
 		@include mid {
 			font-size: 25px;
 		}
+	}
+}
+
+.type-parks {
+	h3.name {
+		font-size: 20px;
+		font-weight: 500;
+		font-style: italic;
+		text-align: center;
+		line-height: 1.2;
+		margin: 0 0 40px;
+		span {
+			display: inline-block;
+			border-bottom: 1px solid $blue;
+		}
+	}
+	.park-info, .feat-image, .text-wrap {
+		width: 100%;
+		float: left;
+	}
+	.park-info {
+		margin: 50px 0 50px;
+	}
+	.feat-image img {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+	.text-wrap {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		p {
+			margin-top: 0;
+		}
+	}
+	.leftcol {
+		width: 100%;
+		margin-bottom: 30px;
+		font-size: 20px;
+		@include tab {
+			width: 70%;
+			float: left;
+			padding-right: 30px;
+			margin-bottom: 0;
+		}
+		ul > li {
+			margin: 20px 0;
+		}
+	}
+	.rightcol {
+		background: $blue;
+		color: #FFF;
+		padding: 20px;
+		font-size: 16px;
+		@include tab {
+			width: 28%;
+			float: right;
+		}
+		h3 {
+			font-size: 20px;
+			font-weight: 500;
+			font-style: italic;
+			margin:0 0 15px;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.pagebottomtext {
+		width: 100%;
+		float: left;
+		margin-top: 30px;
+		margin-bottom: 30px;
 	}
 }
 
