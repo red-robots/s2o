@@ -2162,7 +2162,7 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 @media(min-width:960px){.pagebottomtext .wrapper{max-width:900px}
 }.pagebottomtext .text{font-size:20px;font-weight:500;font-style:italic;margin-bottom:30px}
 @media(min-width:960px){.pagebottomtext .text{font-size:25px}
-}.type-parks h3.name{font-size:20px;font-weight:500;font-style:italic;text-align:center;line-height:1.2;margin:0 0 40px}
+}.type-parks h3.name{font-size:25px;font-weight:500;font-style:italic;text-align:center;line-height:1.2;margin:0 0 40px}
 .type-parks h3.name span{display:inline-block;border-bottom:1px solid #003d5d}
 .type-parks .park-info,.type-parks .feat-image,.type-parks .text-wrap{width:100%;float:left}
 .type-parks .park-info{margin:50px 0 50px}
