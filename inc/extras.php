@@ -161,12 +161,19 @@ function get_social_links() {
 
 function get_subpage_banner() {
     $banner = get_field('banner');
-    if( is_singular( array('projects') ) ) {
-        $parentId = get_page_id_by_template('page-projects');
-        $banner = get_field('banner',$parentId);
+    $parentId = '';
+    $parent_templates = array(
+                'projects'=>'page-projects',
+                'staff'=>'page-staff',
+                'post'=>'page-news'
+            );
+    foreach($parent_templates as $post_type => $temp_filename) {
+        if( is_singular( array($post_type) ) ) {
+            $parentId = get_page_id_by_template($temp_filename);
+        }
     }
-    if( is_singular( array('staff') ) ) {
-        $parentId = get_page_id_by_template('page-staff');
+
+    if($parentId) {
         $banner = get_field('banner',$parentId);
     }
     return $banner;

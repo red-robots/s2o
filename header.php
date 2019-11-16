@@ -10,6 +10,7 @@
 $banner = get_subpage_banner();
 $bodyClass = ($banner) ? 'hasbanner':'nobanner';
 ?>
+<script>var currentPage = '<?php echo get_permalink()?>';</script>
 </head>
 
 <body <?php body_class($bodyClass); ?>>

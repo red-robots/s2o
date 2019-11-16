@@ -2198,6 +2198,43 @@ body.nobanner .content-area.default{margin-top:40px}
 @media(min-width:768px){body.nobanner .page404.content-area.default{margin-top:100px}
 }body.pagesitemap .sitemapMenu{text-align:left}
 .pagecontact .gform_wrapper{max-width:900px;width:100%}
+.news-filter{text-align:center}
+.news-filter strong{display:inline-block;padding:6px 15px 4px;font-size:15px;line-height:1}
+.news-filter a{text-decoration:none;display:inline-block;padding:6px 15px 4px;font-size:15px;line-height:1;border-radius:3px;color:#035fab}
+.news-filter a:hover{color:#0d8acc;opacity:.75}
+.news-filter a.active,.news-filter a.active:hover{background:#003d5d;color:#FFF;opacity:1}
+.news-wrapper{margin-top:15px;margin-bottom:30px;overflow:hidden}
+.news-wrapper .masonry{position:relative;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.news-wrapper .masonry .item{display:inline-block;background:#fff;width:100%;box-sizing:border-box;border-radius:5px;position:relative;-webkit-column-break-inside:avoid;page-break-inside:avoid;break-inside:avoid;padding:1em}
+@media(min-width:768px){.news-wrapper .masonry .item{width:50%}
+}@media(min-width:960px){.news-wrapper .masonry .item{width:33.3%}
+}@media(min-width:1200px){.news-wrapper .masonry .item{width:25%}
+}.news-wrapper .masonry .item:focus{outline:0}
+.news-wrapper .masonry .item .inside{box-shadow:0 1px 2px 0 rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.13);border-radius:5px}
+.news-wrapper figure{display:block;width:100%;float:left;margin:0}
+.news-wrapper figure a{display:block;width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
+.news-wrapper figure img{width:100%;height:auto;float:left}
+.news-wrapper .excerpt{width:100%;float:left;padding:15px 10px 10px;position:relative;overflow:hidden}
+.news-wrapper .excerpt h2.title{margin:0 0 10px;font-size:18px;font-weight:500;line-height:1.2}
+.news-wrapper .excerpt .text{font-size:14px;font-weight:400;font-style:italic;margin-bottom:23px}
+.news-wrapper .excerpt .postdate{font-size:13px;color:#a4aaaf}
+.news-wrapper .excerpt .btndiv{display:inline-block;position:absolute;bottom:10px;right:0}
+.news-wrapper .excerpt .btndiv a{display:inline-block;text-decoration:none;background:#003d5d;color:#FFF;font-size:13px;padding:3px 5px 2px}
+.news-wrapper .excerpt .btndiv a:hover{background:#035fab}
+.news-wrapper .categoryname{background:#003d5d;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;color:rgba(255,255,255,0.75);padding:5px 15px;font-size:13px;font-style:italic}
+.moreposts{width:100%;float:left;margin-top:20px;margin-bottom:30px;text-align:center}
+.moreposts .lastposts{display:block;font-size:18px;font-weight:500;padding:8px 10px}
+.moreposts a{display:block;background:#003d5d;color:#FFF;font-size:18px;font-weight:400;padding:8px 10px;text-decoration:none;text-align:center}
+.moreposts a:hover{background:#0d8acc}
+.single-post #content{padding-top:10px}
+.single-post .entry-header{margin-bottom:25px}
+.single-post .entry-header h1{margin:0;font-size:30px;font-weight:500;font-style:italic;line-height:1.3;color:#003d5d}
+.single-post .postdate{font-size:15px;color:#a4aaaf}
+.single-post .text-full img{box-shadow:0 1px 2px 0 rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.13)}
+#main:focus,.entry-content:focus{outline:0}
+.singleFeatImg{width:100%;height:auto;background-color:#FFF;box-shadow:0 1px 2px 0 rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.13);margin-bottom:30px;float:left}
+@media(min-width:768px){.singleFeatImg{max-width:50%;float:right;margin:20px 0 15px 25px}
+}.singleFeatImg img{width:100%;height:auto;float:left}
 .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){border:1px solid #909090;height:40px;line-height:40px;padding:5px}
 .gform_wrapper select,.gform_wrapper textarea{border:1px solid #909090;padding:5px}
 .gform_wrapper select,.gform_wrapper textarea,.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
