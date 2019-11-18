@@ -1833,7 +1833,8 @@ body{font-family:"Roboto",sans-serif;font-size:16px;line-height:1.4;color:#003d5
 @media(min-width:960px){.wrapper{max-width:95%;padding-left:0;padding-right:0}
 }@media(min-width:1200px){.wrapper{max-width:75%}
 }@media(min-width:960px){.wrapper.med{max-width:80%}
-}@media(min-width:1200px){.wrapper.med{max-width:60%}
+}@media(min-width:1200px){.wrapper.med{max-width:70%}
+}@media(min-width:1600px){.wrapper.med{max-width:60%}
 }.flexrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .site{position:relative;overflow-x:hidden;overflow-y:auto}
 #content:focus{outline:0}
@@ -2241,6 +2242,24 @@ body.nobanner .content-area.default{margin-top:40px}
 .gform_wrapper select:focus,.gform_wrapper textarea:focus,.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus{outline:0;border:1px solid #108df5;box-shadow:0 0 7px 1px rgba(3,43,117,0.3)}
 .gform_wrapper .gform_footer input.button,.gform_wrapper .gform_footer input[type=submit],.gform_wrapper .gform_page_footer input.button,.gform_wrapper .gform_page_footer input[type=submit]{border:1px solid #064a82;border-bottom-width:4px;padding:10px 25px;font-weight:500;font-size:18px !important;line-height:1.2;background:#00589f;color:#FFF;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 .gform_wrapper .gform_footer input.button:hover,.gform_wrapper .gform_footer input[type=submit]:hover,.gform_wrapper .gform_page_footer input.button:hover,.gform_wrapper .gform_page_footer input[type=submit]:hover{background:#0d7bd4}
+.contactpage .introwrap h2.t2{max-width:100% !important}
+.contactpage .contact-details{margin-top:30px}
+.contactpage .contact-details .row{margin:0 -20px}
+@media(min-width:768px){.contactpage .contact-details .row{margin:0 -40px}
+}.contactpage .gform_wrapper{width:100%;float:left}
+.contactpage .cfcol{text-align:left;padding:20px;width:100%;float:left}
+@media(min-width:768px){.contactpage .cfcol{width:50%;padding:20px 40px}
+}.contactpage .contactform .gform_wrapper ul.gform_fields li.gfield{width:100% !important;padding:0;margin:0 0 15px}
+.contactpage .contactform .gform_wrapper .top_label .gfield_label,.contactpage .contactform .gform_wrapper legend.gfield_label{font-weight:400;font-size:16px}
+.contactpage .contacts{margin-top:0;font-size:16px}
+@media(min-width:768px){.contactpage .contacts{margin-top:52px}
+}.contactpage .contacts .inside{background:#003d5d;color:#FFF;padding:20px}
+.contactpage .contacttitle{font-size:20px;font-style:italic;font-weight:500;margin-bottom:20px}
+.contactpage .gform_wrapper .gform_footer input.button,.contactpage .gform_wrapper .gform_footer input[type=submit],.contactpage .gform_wrapper .gform_page_footer input.button,.contactpage .gform_wrapper .gform_page_footer input[type=submit]{background:#003d5d;color:#FFF;border:0;padding:8px 20px;margin:0;display:block;width:100%}
+.contactpage .gform_wrapper .gform_footer input.button:hover,.contactpage .gform_wrapper .gform_footer input[type=submit]:hover,.contactpage .gform_wrapper .gform_page_footer input.button:hover,.contactpage .gform_wrapper .gform_page_footer input[type=submit]:hover{background:#0d8acc}
+.contactpage .gform_wrapper .top_label div.ginput_container{margin-top:3px !important}
+.gform_wrapper div.validation_error{font-weight:500;font-size:16px}
+.gform_wrapper .field_description_below .gfield_description{padding-top:0 !important;padding-bottom:2px !important;font-size:14px !important}
 #loaderdiv{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(8,49,74,0.95);z-index:99000}
 #loaderdiv.show{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 #loaderdiv .loader,#loaderdiv .loader:after{width:8em;height:8em}

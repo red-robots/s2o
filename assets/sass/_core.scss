@@ -110,6 +110,9 @@ body {
 			max-width: 80%;
 		}
 		@include desk {
+			max-width: 70%;
+		}
+		@include extra {
 			max-width: 60%;
 		}
 	}
@@ -2307,6 +2310,90 @@ body.pagesitemap {
 		background: #0d7bd4;
 	}
 }
+
+/* Contact */
+.contactpage {
+	.introwrap h2.t2 {
+		max-width: 100% !important;
+	}
+	.contact-details {
+		margin-top: 30px;
+	}
+	.contact-details .row {
+		margin: 0 -20px;
+		@include tab {
+			margin: 0 -40px;
+		}
+	}
+	.gform_wrapper {
+		width: 100%;
+		float: left;
+	}
+	.cfcol {
+		text-align: left;
+		padding: 20px;
+		width: 100%;
+		float: left;
+		@include tab {
+			width: 50%;
+			padding: 20px 40px;
+		}
+	}
+	.contactform {
+		.gform_wrapper  ul.gform_fields li.gfield {
+			width: 100%!important;
+			padding: 0 0;
+			margin: 0 0 15px;
+		}
+		.gform_wrapper .top_label .gfield_label, .gform_wrapper legend.gfield_label {
+			font-weight: 400;
+			font-size: 16px;
+		}
+	}
+	.contacts {
+		margin-top: 0;
+		font-size: 16px;
+		@include tab {
+			margin-top: 52px;
+		}
+		.inside {
+			background: $blue;
+			color: #FFF;
+			padding: 20px;
+		}
+	}
+	.contacttitle {
+		font-size: 20px;
+		font-style: italic;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+	.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type=submit] {
+		background: $blue;
+		color: #FFF;
+		border: none;
+		padding: 8px 20px;
+		margin: 0 0;
+		display: block;
+		width: 100%;
+		&:hover {
+			background: $brightblue;
+		}
+	}
+	.gform_wrapper .top_label div.ginput_container {
+		margin-top: 3px!important;
+	}
+}
+.gform_wrapper div.validation_error {
+	font-weight: 500;
+	font-size: 16px;
+}
+.gform_wrapper .field_description_below .gfield_description {
+	padding-top: 0!important;
+	padding-bottom: 2px!important;
+	font-size: 14px!important;
+}
+
 #loaderdiv {
 	display: none;
 	position: fixed;
