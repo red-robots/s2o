@@ -1193,19 +1193,34 @@ img.rowImg {
 		@include mid {
 			font-size: 45px;
 		}
+		&.mb50 {
+			margin-bottom: 20px;
+			@include tab {
+				margin-bottom: 50px;
+			}
+		}
+
 	}
 	.scol {
 		@include tab {
 			width: 50%;
 			float: left;
 		}
-		&.right {
+		&.left {
 			@include tab {
-				padding-left: 20px;
+				padding-right: 30px;
 			}
+		}
+		&.right {
 			img {
 				width: 100%;
 				height: auto;
+			}
+		}
+		div.image {
+			margin-bottom: 20px;
+			@include tab {
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -1235,6 +1250,11 @@ img.rowImg {
 		div.button {
 			text-align: center;
 		}
+	}
+}
+.text-image-wrap .flexrow {
+	@include tab {
+		flex-direction: row-reverse;
 	}
 }
 .section-divider {
@@ -1297,7 +1317,18 @@ img.rowImg {
 		}
 	}
 }
-
+.subsection.row2 {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	@include mid {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+	.textbold {
+		font-weight: 600;
+		font-style: italic;
+	}
+}
 .subsection.row3 {
 	background: #01324a;
 	.toptext {
