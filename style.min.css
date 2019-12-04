@@ -2129,7 +2129,7 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 @media screen and (max-width:980px){.project-galleries .staff-wrapper .box span.caption .title{-webkit-transform:scale(0.65);-ms-transform:scale(0.65);transform:scale(0.65)}
 }@media screen and (max-width:480px){.project-galleries .staff-wrapper .box{width:50%}
 }.staff-list-wrapper{max-width:1200px;width:100%;margin:7% auto 0;border-top:3px solid #003d5d}
-.staff-list-wrapper .listtitle{margin-bottom:15px;margin-top:15px}
+.staff-list-wrapper .listtitle{margin-top:15px;margin-bottom:18px}
 .filter-options{text-align:center}
 .filter-options strong{margin-right:10px}
 .filter-options .opt{display:inline-block}

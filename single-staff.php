@@ -31,7 +31,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<div class="staff-list-wrapper"><?php get_template_part("template-parts/content","staff"); ?></div>
+			<div class="staff-list-wrapper fadeIn wow" data-wow-delay=".8s"><?php get_template_part("template-parts/content","staff"); ?></div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
