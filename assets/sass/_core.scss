@@ -641,8 +641,12 @@ img.rowImg {
 		font-size: 42px;
 	}
 	@include desk {
+		font-size: 50px;
+	}
+	@include extra {
 		font-size: 70px;
 	}
+	
 	&.md {
 		font-size: 30px;
 		font-weight: 800;

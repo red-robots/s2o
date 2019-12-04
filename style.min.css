@@ -1933,7 +1933,8 @@ img.rowImg{display:none;width:100%;height:auto;float:left;-webkit-transition:all
 }.titlelg{font-size:26px;font-weight:800;font-style:italic;text-transform:uppercase}
 @media(min-width:768px){.titlelg{font-size:4vw}
 }@media(min-width:980px){.titlelg{font-size:42px}
-}@media(min-width:1200px){.titlelg{font-size:70px}
+}@media(min-width:1200px){.titlelg{font-size:50px}
+}@media(min-width:1600px){.titlelg{font-size:70px}
 }.titlelg.md{font-size:30px;font-weight:800;font-style:italic;text-transform:uppercase}
 @media(min-width:768px){.titlelg.md{font-size:3vw}
 }@media(min-width:980px){.titlelg.md{font-size:38px}
