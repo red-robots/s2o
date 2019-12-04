@@ -129,7 +129,7 @@ get_header(); ?>
 							$pageid = 'news' . $pid;
 							?>
 
-							<article id="<?php echo $pageid ?>" class="item grid-item">
+							<article id="<?php echo $pageid ?>" class="item grid-item lineup">
 								<div class="inside cf">
 									<?php if ($categoryLists) { ?>
 									<div class="categoryname"><?php echo $categoryLists ?></div>	

@@ -2222,14 +2222,25 @@ body.pagesitemap {
 			break-inside: avoid;
 			padding: 1em;
 
-			@include tab {
-				width: 50%;
-			}
-			@include mid {
-				width: 33.3%;
-			}
+			// @include tab {
+			// 	width: 50%;
+			// }
+			// @include mid {
+			// 	width: 33.3%;
+			// }
+
 			@include desk {
 				width: 25%;
+			}
+
+			@media screen and (min-width: 800px) and (max-width:1300px) {
+				width: 33.3%;
+			}
+			@media screen and (max-width: 799px) {
+				width: 50%;
+			}
+			@media screen and (max-width: 600px) {
+				width: 100%;
 			}
 			&:focus {
 				outline: none;
@@ -2238,6 +2249,28 @@ body.pagesitemap {
 				box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.13);
 		    	border-radius: 5px;
 			}
+			&.lineup {
+				.excerpt {
+					position: static;
+					.btndiv {
+						width: 47px;
+						right: -1px;
+						z-index: 20;
+					}
+					.text {
+						margin-bottom: 38px;
+					}
+				}
+				.inside {
+					height: 100%;
+					position: relative;
+				}
+				.postdate {
+					position: absolute;
+					bottom: 14px;
+				}
+			}
+			
 		}
 	}	
 	figure {

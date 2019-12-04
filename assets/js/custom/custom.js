@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
 	});
 
     /* News Page Filter */
-    do_masonry();
+    //do_masonry();
 	function do_masonry() {
 		$('.grid').masonry({
 		  itemSelector: '.grid-item',
@@ -256,8 +256,8 @@ jQuery(document).ready(function ($) {
 		
 					},
 					complete:function(){
-						$('.grid').masonry('destroy');
-						do_masonry();
+						//$('.grid').masonry('destroy');
+						//do_masonry();
 					},
 					error: function (xhr, ajaxOptions, thrownError) {
 						$("#loaderdiv").removeClass("show");
@@ -287,7 +287,7 @@ jQuery(document).ready(function ($) {
 
 				},
 				complete:function(){
-					do_masonry();
+					//do_masonry();
 				},
 				error: function (xhr, ajaxOptions, thrownError) {
 					$("#loaderdiv").removeClass("show");
