@@ -25,10 +25,13 @@ get_header(); ?>
 							<?php } ?>
 						</div>
 						<?php the_content(); ?>
+
 					</div>
 				</article>
 
 			<?php endwhile; ?>
+
+			<div class="staff-list-wrapper"><?php get_template_part("template-parts/content","staff"); ?></div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
