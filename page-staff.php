@@ -46,7 +46,9 @@ get_header(); ?>
 			$args = array(
 				'posts_per_page'=> $posts_per_page,
 				'post_type'		=> $post_type,
-				'post_status'	=> 'publish'
+				'post_status'	=> 'publish',
+				'orderby' => 'menu_order', 
+				'order' => 'ASC', 
 			);
 
 			$team = new WP_Query($args);
