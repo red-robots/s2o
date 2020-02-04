@@ -51,8 +51,8 @@ function bella_acf_op_init() {
 
         // Register options page.
         $option_page = acf_add_options_page(array(
-            'page_title'    => __('Theme General Settings'),
-            'menu_title'    => __('Theme Settings'),
+            'page_title'    => __('Theme Options'),
+            'menu_title'    => __('Theme Options'),
             'menu_slug'     => 'theme-general-settings',
             'capability'    => 'edit_posts',
             'redirect'      => false
@@ -204,3 +204,84 @@ function get_subpage_banner() {
     }
     return $banner;
 }
+
+
+/* This is to fix the Theme Options redirection issue */
+function myCustomAdminStyles() { ?>
+    <style>
+        #adminmenu li#toplevel_page_acf-options {
+            display: none;
+        }
+    </style>
+<?php }
+add_action("admin_head","myCustomAdminStyles");
+
+function custom_admin_js() {
+    $currentPage = ( isset($_GET['page']) && $_GET['page'] ) ? $_GET['page'] : '';
+    $customNonce = wp_create_nonce("myCustomOptionsPage");
+    $url = get_bloginfo('template_directory') . '/assets/js/admin.js';
+    echo '"<script type="text/javascript" src="'. $url . '"></script>"'; 
+    if($currentPage=='theme-general-settings') { ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            var messageContainer = '<div id="msgDiv"></div>';
+            $(messageContainer).insertBefore("body.toplevel_page_theme-general-settings form#post");
+            $("body.toplevel_page_theme-general-settings form#post").prepend('<input type="hidden" name="optnonce" value="<?php echo $customNonce?>">');
+            var customSubmitBtn = '<a class="button button-primary button-large" href="#" id="acfCustomBtn">Update</a>';
+            $("body.toplevel_page_theme-general-settings form#post #publishing-action input.button").remove();
+            $("body.toplevel_page_theme-general-settings form#post #publishing-action").append(customSubmitBtn);
+        });
+    </script>
+    <?php 
+    }  
+}
+add_action('admin_footer', 'custom_admin_js');
+
+
+add_action( 'admin_enqueue_scripts', 'my_script_enqueuer' );
+function my_script_enqueuer() {
+    wp_register_script( 'ajax-js', get_template_directory_uri() . '/assets/js/admin.js', array( 'jquery' ), '', true );
+    wp_localize_script( 'ajax-js', 'ajaxParams', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'ajax-js' );
+}
+
+/* Ajax Save */
+add_action("wp_ajax_my_ajax_save_option", "my_ajax_save_option");
+add_action('wp_ajax_nopriv_my_ajax_save_option', 'youMustLogin');
+function my_ajax_save_option() {
+    if ( !wp_verify_nonce( $_REQUEST['optnonce'], "myCustomOptionsPage")) {
+        exit("");
+    }  
+
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+
+        $option_id = $_POST['_acf_post_id'];
+        $optionData = $_POST['acf'];
+        $updatesArr = array();
+        $success = false;
+
+        if($optionData) {
+            foreach($optionData as $fieldKey=>$value) {
+                $isUpdate = update_field( $fieldKey, $value, 'option' );
+                $updatesArr[] = $fieldKey;
+            }
+            $success = true;
+        }
+
+
+      $result = json_encode( array('success'=>$success,'fieldkeys'=>$updatesArr) );
+      echo $result;
+
+    }
+    else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+
+function youMustLogin() {
+   echo "You must log in to edit.";
+   die();
+}
+
