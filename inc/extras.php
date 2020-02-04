@@ -224,13 +224,16 @@ function custom_admin_js() {
     if($currentPage=='theme-general-settings') { ?>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
+            
+            /* Remove Leave Site Pop-up Message */
+            acf.unload.active = false;
 
             var messageContainer = '<div id="msgDiv"></div>';
             $(messageContainer).insertBefore("body.toplevel_page_theme-general-settings form#post");
             $("body.toplevel_page_theme-general-settings form#post").prepend('<input type="hidden" name="optnonce" value="<?php echo $customNonce?>">');
-            var customSubmitBtn = '<a class="button button-primary button-large" href="#" id="acfCustomBtn">Update</a>';
-            $("body.toplevel_page_theme-general-settings form#post #publishing-action input.button").remove();
-            $("body.toplevel_page_theme-general-settings form#post #publishing-action").append(customSubmitBtn);
+            var customSubmitBtn = '<a class="button button-primary button-large" accesskey="p" href="#" id="acfCustomBtn">Update</a>';
+            //$("body.toplevel_page_theme-general-settings form#post #publishing-action input.button").hide();
+            //$("body.toplevel_page_theme-general-settings form#post #publishing-action").append(customSubmitBtn);
         });
     </script>
     <?php 

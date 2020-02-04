@@ -1,10 +1,9 @@
 jQuery(document).ready(function ($) {
-	
-	$(document).on("click","#acfCustomBtn",function(e){
+
+	$(document).on("click","body.toplevel_page_theme-general-settings input#publish",function(e){
         e.preventDefault();
         var formId = $("form#post");
-        var formData = 'action=my_ajax_save_option&' + formId.serialize();
-        //formId.trigger("submit");
+        var formData = 'action=my_ajax_save_option&publish=Update&' + formId.serialize();
         $.ajax({
             type : "post",
             dataType : "json",
@@ -15,8 +14,8 @@ jQuery(document).ready(function ($) {
                 	var successMsg = '<div class="acf-admin-notice notice notice-success is-dismissible"><p>Options Updated.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
                 	var currentURL = window.location.href;
                 	var newURL = currentURL + '&message=1';
-                	$("#msgDiv").html(successMsg);
-                    //location.replace(newURL);
+                	//$("#msgDiv").html(successMsg);
+                    location.replace(newURL);
                 } 
             },
             complete:function(){
