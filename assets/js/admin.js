@@ -10,6 +10,9 @@ jQuery(document).ready(function ($) {
             dataType : "json",
             url : ajaxParams.ajaxUrl,
             data : formData,
+            beforeSend:function(){
+            	formId.find("#submitdiv .spinner").css("visibility","visible");
+            },
             success: function(response) {
                 if(response.success) {
                 	var successMsg = '<div style="display:none" class="acf-admin-notice notice notice-success is-dismissible"><p>Options Updated.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
@@ -21,6 +24,7 @@ jQuery(document).ready(function ($) {
                 } 
             },
             complete:function(){
+            	formId.find("#submitdiv .spinner").css("visibility","hidden");
             	$(document).on("click","#msgDiv button.notice-dismiss",function(){
             		$("#msgDiv").html("");
             	});
