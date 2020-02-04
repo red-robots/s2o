@@ -232,8 +232,8 @@ function custom_admin_js() {
             $(messageContainer).insertBefore("body.toplevel_page_theme-general-settings form#post");
             $("body.toplevel_page_theme-general-settings form#post").prepend('<input type="hidden" name="optnonce" value="<?php echo $customNonce?>">');
             var customSubmitBtn = '<a class="button button-primary button-large" accesskey="p" href="#" id="acfCustomBtn">Update</a>';
-            //$("body.toplevel_page_theme-general-settings form#post #publishing-action input.button").hide();
-            //$("body.toplevel_page_theme-general-settings form#post #publishing-action").append(customSubmitBtn);
+            $("body.toplevel_page_theme-general-settings form#post #publishing-action input.button").hide();
+            $("body.toplevel_page_theme-general-settings form#post #publishing-action").append(customSubmitBtn);
         });
     </script>
     <?php 
