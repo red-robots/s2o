@@ -3,8 +3,8 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="wrapper">
 			<?php 
-			$foot_icon = get_field('opt_footer_icon','option');
-			$foot_text = get_field('opt_footer_text','option');
+			$foot_icon = get_field('foot_icon','option');
+			$foot_text = get_field('foot_text','option');
 			?>
 			<?php if ($foot_text) { ?>
 			<div class="foot-info">
@@ -29,12 +29,11 @@
 		</div><!-- wrapper -->
 
 			<?php  
-				$foot_info[] = get_field('opt_company_name','option');
-				$foot_info[] = get_field('opt_address1','option');
-				$foot_info[] = get_field('opt_address2','option');
-				//$foot_info[] = ( get_field('opt_phone','option') ) ? 'Cell: ' . '<a href="tel:'.format_phone_number(get_field('phone','option')).'">'.get_field('phone','option').'</a>' : '';
-				$foot_info[] = ( get_field('opt_phone','option') ) ? 'Cell: ' . get_field('phone','option') : '';
-				$foot_info[] = ( get_field('opt_fax','option') ) ? 'Office/fax: ' . get_field('fax','option') : '';
+				$foot_info[] = get_field('company_name','option');
+				$foot_info[] = get_field('address1','option');
+				$foot_info[] = get_field('address2','option');
+				$foot_info[] = ( get_field('phone','option') ) ? 'Cell: ' . get_field('phone','option') : '';
+				$foot_info[] = ( get_field('fax','option') ) ? 'Office/fax: ' . get_field('fax','option') : '';
 				$social_media = get_social_links();
 			?>
 			<div class="foot-contact-info clear">

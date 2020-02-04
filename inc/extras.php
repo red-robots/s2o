@@ -43,6 +43,23 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
+add_action('acf/init', 'bella_acf_op_init');
+function bella_acf_op_init() {
+
+    // Check function exists.
+    if( function_exists('acf_add_options_page') ) {
+
+        // Register options page.
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Theme General Settings'),
+            'menu_title'    => __('Theme Settings'),
+            'menu_slug'     => 'theme-general-settings',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
+}
+
 
 function add_query_vars_filter( $vars ) {
   $vars[] = "pg";
@@ -141,21 +158,21 @@ function email_obfuscator($string) {
 }
 
 function get_social_links() {
-    // $social_types = array(
-    //     'facebook_link'  => 'fab fa-facebook-square',
-    //     'instagram_link' => 'fab fa-instagram',
-    //     'twitter_link'   => 'fab fa-twitter-square',
-    //     'linkedin_link'  => 'fab fa-linkedin',
-    //     'youtube_link'   => 'fab fa-youtube'
-    // );
-
     $social_types = array(
-        'facebook'  => 'fab fa-facebook-square',
-        'twitter'   => 'fab fa-twitter-square',
-        'linkedin'  => 'fab fa-linkedin-square',
-        'instagram' => 'fab fa-instagram',
-        'youtube'   => 'fab fa-youtube'
+        'facebook_link'  => 'fab fa-facebook-square',
+        'instagram_link' => 'fab fa-instagram',
+        'twitter_link'   => 'fab fa-twitter-square',
+        'linkedin_link'  => 'fab fa-linkedin-square',
+        'youtube_link'   => 'fab fa-youtube'
     );
+
+    // $social_types = array(
+    //     'facebook'  => 'fab fa-facebook-square',
+    //     'twitter'   => 'fab fa-twitter-square',
+    //     'linkedin'  => 'fab fa-linkedin-square',
+    //     'instagram' => 'fab fa-instagram',
+    //     'youtube'   => 'fab fa-youtube'
+    // );
 
     $social = array();
     foreach($social_types as $k=>$icon) {
