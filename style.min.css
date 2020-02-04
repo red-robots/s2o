@@ -2342,7 +2342,8 @@ body.nobanner .content-area.default{margin-top:40px}
 }.foot-contact-info .footcontact{position:relative}
 @media(min-width:1200px){.foot-contact-info .footcontact{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;right:-2%}
 }@media screen and (max-width:1199px){.foot-contact-info .footcontact{width:100%;text-align:center}
-}.foot-contact-info .footcontact li:first-child{border-left:0}
+}.foot-contact-info .footcontact a{display:inline-block;text-decoration:none;color:#FFF}
+.foot-contact-info .footcontact li:first-child{border-left:0}
 .foot-contact-info .social-media{border-left:0}
 @media screen and (max-width:1199px){.foot-contact-info .social-media{display:block;width:100%;float:left;margin-bottom:0;margin-top:20px}
 }.foot-contact-info .social-media a{color:#FFF;display:inline-block;text-decoration:none;font-size:25px;line-height:1;margin:2px 4px}

@@ -114,6 +114,7 @@ get_header(); ?>
 							if($content) {
 								$content = strip_tags($content);
 								$content = strip_shortcodes($content);
+								$content = preg_replace('#\[[^\]]+\]#', '',$content);
 								$content = shortenText($content, 70," ","...");
 							}
 							$categoryLists = '';
@@ -144,7 +145,7 @@ get_header(); ?>
 									<div class="excerpt cf">
 										<h2 class="title"><?php echo get_the_title(); ?></h2>
 										<?php if ($content) { ?>
-										<div class="text"><?php echo $content ?></div>
+										<div class="text"><?php echo $content; ?></div>
 										<?php } ?>
 										<div class="postdate"><?php echo get_the_date('F j, Y'); ?></div>
 										<div class="btndiv"><a href="<?php echo get_permalink() . '#content'; ?>">Read &rsaquo;</a></div>

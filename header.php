@@ -11,6 +11,10 @@ $banner = get_subpage_banner();
 $bodyClass = ($banner) ? 'hasbanner':'nobanner';
 ?>
 <script>var currentPage = '<?php echo get_permalink()?>';</script>
+<?php if ( $analytics = get_field("opt_google_analytics","option") ) { ?>
+<!-- Google Analytics -->
+<?php echo $analytics; ?>
+<?php } ?>
 </head>
 
 <body <?php body_class($bodyClass); ?>>

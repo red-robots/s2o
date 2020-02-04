@@ -2818,6 +2818,11 @@ body.home .site-footer {
 			width: 100%;
 			text-align: center;
 		}
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: #FFF;
+		}
 	}
 	.footcontact li:first-child {
 		border-left: none;
