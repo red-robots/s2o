@@ -14,8 +14,8 @@ jQuery(document).ready(function ($) {
                 	var successMsg = '<div class="acf-admin-notice notice notice-success is-dismissible"><p>Options Updated.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
                 	var currentURL = window.location.href;
                 	var newURL = currentURL + '&message=1';
-                	//$("#msgDiv").html(successMsg);
-                    location.replace(newURL);
+                	$("#msgDiv").html(successMsg);
+                    //location.replace(newURL);
                 } 
             },
             complete:function(){
