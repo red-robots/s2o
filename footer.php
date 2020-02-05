@@ -33,8 +33,9 @@
 				$foot_info[] = get_field('opt_address1','option');
 				$foot_info[] = get_field('opt_address2','option');
 				//$foot_info[] = ( get_field('opt_phone','option') ) ? 'Cell: ' . '<a href="tel:'.format_phone_number(get_field('phone','option')).'">'.get_field('phone','option').'</a>' : '';
-				$foot_info[] = ( get_field('opt_phone','option') ) ? 'Cell: ' . get_field('phone','option') : '';
-				$foot_info[] = ( get_field('opt_fax','option') ) ? 'Office/fax: ' . get_field('fax','option') : '';
+				$foot_info[] = ( get_field('opt_phone','option') ) ? 'Cell: ' . get_field('opt_phone','option') : '';
+				$foot_info[] = ( get_field('opt_fax','option') ) ? 'Office/fax: ' . get_field('opt_fax','option') : '';
+				$foot_info[] = ( get_field('opt_email','option') ) ? '<a href="mailto:'.antispambot( get_field('opt_email','option'), 1 ).'">'.antispambot( get_field('opt_email','option') ).'</a>' : '';
 				$social_media = get_social_links();
 			?>
 			<div class="foot-contact-info clear">
