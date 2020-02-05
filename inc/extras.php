@@ -158,21 +158,21 @@ function email_obfuscator($string) {
 }
 
 function get_social_links() {
-    $social_types = array(
-        'facebook_link'  => 'fab fa-facebook-square',
-        'instagram_link' => 'fab fa-instagram',
-        'twitter_link'   => 'fab fa-twitter-square',
-        'linkedin_link'  => 'fab fa-linkedin-square',
-        'youtube_link'   => 'fab fa-youtube'
-    );
-
     // $social_types = array(
-    //     'facebook'  => 'fab fa-facebook-square',
-    //     'twitter'   => 'fab fa-twitter-square',
-    //     'linkedin'  => 'fab fa-linkedin-square',
-    //     'instagram' => 'fab fa-instagram',
-    //     'youtube'   => 'fab fa-youtube'
+    //     'facebook_link'  => 'fab fa-facebook-square',
+    //     'instagram_link' => 'fab fa-instagram',
+    //     'twitter_link'   => 'fab fa-twitter-square',
+    //     'linkedin_link'  => 'fab fa-linkedin-square',
+    //     'youtube_link'   => 'fab fa-youtube'
     // );
+
+    $social_types = array(
+        'facebook'  => 'fab fa-facebook-square',
+        'twitter'   => 'fab fa-twitter-square',
+        'linkedin'  => 'fab fa-linkedin-square',
+        'instagram' => 'fab fa-instagram',
+        'youtube'   => 'fab fa-youtube'
+    );
 
     $social = array();
     foreach($social_types as $k=>$icon) {
