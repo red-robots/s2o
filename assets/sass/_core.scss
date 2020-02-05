@@ -1908,6 +1908,11 @@ h1.hd1 {
 }
 
 .services-wrapper {
+	#servicesList.wrapper {
+		max-width: 1260px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
 	.box {
 		width: 100%;
 		float: left;
@@ -1927,24 +1932,36 @@ h1.hd1 {
 			padding-right: 30px;
 		}
 	}
-	.textcol,
-	.imagecol {
+	// .textcol,
+	// .imagecol {
+	// 	width: 100%;
+	// 	@include tab {
+	// 		width: 50%;
+	// 	}
+	// }
+	.textcol {
 		width: 100%;
 		@include tab {
-			width: 50%;
+			width: 62%;
+			padding-right: 8%;
 		}
 	}
 	.imagecol {
+		width: 100%;
 		background-color: #ececec;
 		background-size: cover;
 		background-position: center;
 		position: relative;
+		@include tab {
+			width: 38%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
 	}
-	.imagecol img {
-		width: 100%;
-		height: auto;
-		float: left;
-	}
+	
 	.noimage .imagecol {
 		&:before {
 			content:"Photo Coming Soon";
