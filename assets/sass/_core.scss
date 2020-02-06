@@ -2520,6 +2520,13 @@ body.pagesitemap {
 			color: #FFF;
 			padding: 20px;
 		}
+		a {
+			color: #FFF;
+			text-decoration: none;
+			&:hover {
+				color: #ffd200;
+			}
+		}
 	}
 	.contacttitle {
 		font-size: 20px;

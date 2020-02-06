@@ -141,15 +141,23 @@ function email_obfuscator($string) {
     $output = '';
     if($string) {
         $emails_matched = ($string) ? extract_emails_from($string) : '';
+        $stripped = preg_replace('/\s+/','',$string);
+
         if($emails_matched) {
             foreach($emails_matched as $em) {
                 $encrypted = antispambot($em,1);
                 $replace = 'mailto:'.$em;
-                $new_mailto = 'mailto:'.$encrypted;
-                $string = str_replace($replace, $new_mailto, $string);
-                $rep2 = $em.'</a>';
-                $new2 = antispambot($em).'</a>';
-                $string = str_replace($rep2, $new2, $string);
+                
+                if (strpos($stripped, $replace) !== false) {
+                    $new_mailto = 'mailto:'.$encrypted;
+                    $string = str_replace($replace, $new_mailto, $string);
+                    $rep2 = $em.'</a>';
+                    $new2 = antispambot($em).'</a>';
+                    $string = str_replace($rep2, $new2, $string);
+                } else {
+                    $emailStr = '<a href="mailto:'.$encrypted.'">'.antispambot($em).'</a>';
+                    $string = str_replace($em, $emailStr, $string);
+                }
             }
         }
         $output = apply_filters('the_content',$string);

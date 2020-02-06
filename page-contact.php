@@ -18,6 +18,9 @@ get_header(); ?>
 				$tc_button_link = get_field("tc_button_link");
 				$contact_info = get_field("contact_info");
 				$cf_shortcode = get_field("cf_shortcode");
+				if($contact_info) {
+					$contact_info = email_obfuscator($contact_info);
+				}
 			?>
 			<div class="introwrap cf">
 				<div class="wrapper med text-center">
