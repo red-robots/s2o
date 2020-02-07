@@ -1449,13 +1449,16 @@ img.rowBg {
 			font-size: 40px;
 		}
 		@include mid {
-			max-width: 80%;
+			max-width: 85%;
 			font-size: 45px;
+		}
+		@include desk {
+			max-width: 90%;
 		}
 	}
 	h2.t2 {
 		@include mid {
-			max-width: 75%;
+			max-width: 85%;
 		}
 	}
 }

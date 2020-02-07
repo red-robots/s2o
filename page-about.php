@@ -10,6 +10,16 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<h1 style="display:none;"><?php the_title(); ?></h1>
+
+				
+				<?php if ( get_the_content() ) { ?>
+				<div class="introwrap cf">
+					<div class="wrapper med text-center">
+						<div class="introtext"><?php the_content(); ?></div>
+					</div>
+				</div>
+				<?php } ?>
+
 				<?php 
 				$row1_title = get_field('row1_title'); 
 				$row1_text = get_field('row1_text'); 
@@ -20,9 +30,6 @@ get_header(); ?>
 
 				<section class="subsection row1">
 					<div class="wrapper">
-						<?php if ($row1_title) { ?>
-							<h1 class="hd1 mb50 fadeIn wow" data-wow-delay="0.3s"><?php echo $row1_title ?></h1>
-						<?php } ?>
 						
 						<div class="content-section text-image-wrap cf">
 							<div class="flexrow">
@@ -36,8 +43,13 @@ get_header(); ?>
 								</div>
 
 								<div class="scol left fadeIn wow" data-wow-delay="0.5s">
-									<?php if ($row1_text) { ?>
-										<div class="text cf"><?php echo $row1_text; ?></div>
+									<?php if ($row1_text || $row1_title) { ?>
+										<div class="text cf">
+											<?php if ($row1_title) { ?>
+												<h3><?php echo $row1_title; ?></h3>
+											<?php } ?>
+											<?php echo $row1_text; ?>
+										</div>
 										<?php if ($row1_button_name && $row1_button_link) { ?>
 										<div class="button cf"><a href="<?php echo $row1_button_link ?>" class="btn"><?php echo $row1_button_name ?></a></div>
 										<?php } ?>
